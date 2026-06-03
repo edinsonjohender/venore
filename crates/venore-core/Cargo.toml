@@ -1,0 +1,72 @@
+[package]
+name = "venore-core"
+version = "0.1.0"
+edition = "2021"
+authors = ["Edinson Johender <hi@skalar.app>"]
+license = "AGPL-3.0-or-later"
+description = "Core business logic for Venore - Visual Explorer for Node Organization"
+
+# This is a library crate.
+# Used by venore-api, venore-desktop, or any other client.
+[lib]
+name = "venore_core"
+path = "src/lib.rs"
+
+[dependencies]
+# Workspace dependencies (shared versions)
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+sqlx = { workspace = true }
+reqwest = { workspace = true }
+walkdir = { workspace = true }
+notify = { workspace = true }
+serde_yaml = { workspace = true }
+pulldown-cmark = { workspace = true }
+tree-sitter = { workspace = true }
+tree-sitter-typescript = { workspace = true }
+tree-sitter-javascript = { workspace = true }
+tree-sitter-python = { workspace = true }
+tree-sitter-rust = { workspace = true }
+tree-sitter-java = { workspace = true }
+tree-sitter-go = { workspace = true }
+tree-sitter-c-sharp = { workspace = true }
+tree-sitter-php = { workspace = true }
+tree-sitter-ruby = { workspace = true }
+tree-sitter-kotlin-ng = { workspace = true }
+tree-sitter-c = { workspace = true }
+tree-sitter-cpp = { workspace = true }
+tree-sitter-gdscript = { workspace = true }
+keyring = { workspace = true }
+secrecy = { workspace = true }
+dirs = { workspace = true }
+futures = { workspace = true }
+rand = { workspace = true }
+toml = { workspace = true }
+once_cell = { workspace = true }
+
+# venore-core specific dependencies
+uuid = { version = "1.11", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+async-trait = "0.1"
+regex = "1.10"
+url = "2.5"
+sha2 = "0.10"  # SHA-256 hashing for code checksum
+base64 = "0.22"  # Basic-auth header for ephemeral git HTTP authentication
+portable-pty = "0.8"  # PTY for embedded terminal
+glob = "0.3"  # Glob patterns for list_files tool
+html2text = "0.12"  # HTML to text/markdown for web_fetch tool
+lsp-types = { workspace = true }  # LSP protocol types for post-edit diagnostics
+tokio-tungstenite = "0.28"  # WebSocket for mesh peer transport
+tokio-util = { version = "0.7", features = ["rt"] }  # CancellationToken for wizard pipeline aborts
+similar = "2"  # Unified diff for AI write previews (pending logbook writes)
+
+[dev-dependencies]
+# Test helpers
+tokio-test = "0.4"
+tempfile = "3.14"
+serial_test = "3.2"

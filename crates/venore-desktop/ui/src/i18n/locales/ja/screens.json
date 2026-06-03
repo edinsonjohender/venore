@@ -1,0 +1,66 @@
+{
+  "launcher": {
+    "tagline": "自律型エンジニアリングのためのコンテキストレイヤー",
+    "newCodebase": "新規コードベース",
+    "newCodebaseDescription": "コードベースを作成または分析する",
+    "newKnowledge": "新規ナレッジ",
+    "newKnowledgeDescription": "AI による機能調査",
+    "newKnowledgeModalDescription": "AI による調査でフィーチャーを研究するナレッジアイランドを作成します。",
+    "openExisting": "既存のコードベースを開く...",
+    "dragDropHint": "またはプロジェクトフォルダをドラッグ＆ドロップ",
+    "selectAI": "AI を選択",
+    "version": "v2.0.0 Alpha",
+    "recentProjects": "最近のプロジェクト",
+    "clearAllRecent": "最近のプロジェクトをすべてクリア",
+    "removeFromRecent": "最近のプロジェクトから削除",
+    "selectProjectFolder": "プロジェクトフォルダを選択",
+    "unnamed": "名称未設定",
+    "cloneFromGithub": "GitHub からクローン",
+    "cloneFromGithubDescription": "リポジトリをクローンしてコンテキストを設定",
+    "openNotVenore": "このフォルダはまだ Venore プロジェクトではありません。",
+    "openRunWizardHint": "オンボーディングウィザードを実行してセットアップしてください。",
+    "openRunWizardAction": "ウィザードを実行",
+    "openFailed": "プロジェクトを開けませんでした",
+    "openRestoredPrefix": "復元しました",
+    "openEmpty": "プロジェクトを開きました",
+    "openModulesPart": "{{n}} モジュール",
+    "openLayersPart": "{{n}} レイヤー",
+    "openMemoryPart": "プロジェクトメモリ",
+    "openStalePart": "{{n}} 件が古い",
+    "openRecentFailed": "{{name}} を開けません"
+  },
+  "boot": {
+    "phases": {
+      "booting": {
+        "title": "Venore を起動中",
+        "description": "アプリケーションを初期化しています..."
+      },
+      "checking": {
+        "title": "サービスを読み込み中",
+        "description": "システムコンポーネントを検証しています..."
+      },
+      "ready": {
+        "title": "準備完了",
+        "description": "アプリケーションの初期化が完了しました"
+      },
+      "error": {
+        "title": "起動に失敗しました",
+        "description": "初期化中にエラーが発生しました"
+      }
+    },
+    "checks": {
+      "backend": "バックエンド",
+      "database": "データベース",
+      "llmGateway": "LLM Gateway",
+      "aiConfiguration": "AI 設定"
+    },
+    "retry": "再試行",
+    "loadedIn": "{{duration}}ミリ秒で読み込み完了",
+    "errors": {
+      "backendInitFailed": "バックエンドの初期化に失敗しました",
+      "databaseCheckFailed": "データベースのチェックに失敗しました",
+      "llmGatewayCheckFailed": "LLM Gateway のチェックに失敗しました",
+      "aiConfigLoadFailed": "AI 設定の読み込みに失敗しました"
+    }
+  }
+}

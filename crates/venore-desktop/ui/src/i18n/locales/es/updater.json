@@ -1,0 +1,35 @@
+{
+  "notification": {
+    "checking": "Verificando...",
+    "count": "{{count}} módulo desactualizado",
+    "count_plural": "{{count}} módulos desactualizados"
+  },
+  "report": {
+    "title": "Actualización de contexto disponible",
+    "description": "{{commits}} nuevo(s) commit(s) detectado(s)",
+    "commits": "{{count}} nuevo(s) commit(s)",
+    "modules": "{{count}} módulo(s) afectado(s)",
+    "filesChanged": "{{count}} archivo(s) modificado(s)",
+    "regenerate": "Regenerar {{count}} módulo(s)",
+    "dismiss": "Descartar",
+    "selectAll": "Seleccionar todos",
+    "deselectAll": "Deseleccionar todos"
+  },
+  "result": {
+    "title": "Actualización completa",
+    "regenerating": "Regenerando contextos...",
+    "regeneratingDescription": "Regenerando archivos .context.md desactualizados",
+    "completedDescription": "Regeneración de contexto finalizada",
+    "completed": "¡Listo!",
+    "summary": "{{current}}/{{total}} módulos regenerados",
+    "progress": "{{current}} de {{total}}",
+    "dismiss": "Cerrar",
+    "markSynced": "Marcar como sincronizado",
+    "noProgress": "No hay datos de regeneración disponibles"
+  },
+  "state": {
+    "branch": "Rama",
+    "interval": "Intervalo de verificación (minutos)",
+    "autoUpdate": "Actualización automática habilitada"
+  }
+}

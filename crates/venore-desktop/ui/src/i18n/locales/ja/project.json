@@ -1,0 +1,110 @@
+{
+  "panel": {
+    "title": "プロジェクト",
+    "noProject": "プロジェクトが読み込まれていません",
+    "modulesCount": "{{count}} モジュール",
+    "connectionsCount": "{{count}} 接続",
+    "freshCount": "{{count}} 最新",
+    "staleCount": "{{count}} 古い",
+    "missingCount": "{{count}} 未生成",
+    "loading": "読み込み中...",
+    "noAnalysis": "分析なし",
+    "openInExplorer": "エクスプローラーで開く",
+    "reAnalyze": "再分析",
+    "analyzing": "分析中...",
+    "lastAnalyzed": "最終分析日時",
+    "runWizard": "ウィザードを実行",
+    "resnapshotTooltip": "現在のコードから .venore/ スナップショットを更新",
+    "resnapshotSuccess": "スナップショットを更新しました",
+    "resnapshotFailed": "スナップショットの更新に失敗しました",
+    "resnapshotParts": {
+      "modules": "{{n}} モジュール",
+      "layers": "{{n}} レイヤー",
+      "hashes": "{{n}} ハッシュ"
+    }
+  },
+  "tabs": {
+    "context": "コンテキスト",
+    "files": "ファイル"
+  },
+  "context": {
+    "title": "コンテキストファイル",
+    "fresh": "最新",
+    "stale": "古い",
+    "missing": "未生成",
+    "all": "すべて",
+    "regenerate": "再生成",
+    "regenerateAll": "古いファイルをすべて再生成",
+    "noContextFiles": "コンテキストファイルが見つかりません",
+    "noAnalysisAvailable": "分析データがありません",
+    "runWizardHint": "まずウィザードを実行してプロジェクトを分析してください。",
+    "noModulesFound": "モジュールが見つかりません",
+    "searchModules": "{{count}} モジュールを検索...",
+    "filterByStatus": "ステータスで絞り込み",
+    "filteredCount": "{{total}} 件中 {{filtered}} 件",
+    "lastGenerated": "生成日時",
+    "viewFile": "ファイルを表示"
+  },
+  "files": {
+    "title": "ファイル",
+    "noFiles": "ファイルが見つかりません",
+    "noResults": "結果なし",
+    "noAnalysisAvailable": "分析データがありません",
+    "runWizardHint": "まずウィザードを実行してプロジェクトを分析してください。",
+    "searchPlaceholder": "ファイルを検索...",
+    "directories": "ディレクトリ",
+    "totalFiles": "{{count}} ファイル"
+  },
+  "collapsedPill": {
+    "project": "プロジェクト",
+    "expand": "展開"
+  },
+  "node": {
+    "title": "ノード詳細",
+    "noNode": "ノードを選択して詳細を表示",
+    "noModuleData": "モジュールデータがありません",
+    "runWizardHint": "ウィザードを実行すると、ファイル・依存関係・エクスポートなどの詳細情報を確認できます"
+  },
+  "nodeOverview": {
+    "module": "モジュール",
+    "path": "パス",
+    "copyPath": "パスをコピー",
+    "fileCount": "{{count}} ファイル",
+    "fileCount_other": "{{count}} ファイル"
+  },
+  "nodeConnections": {
+    "title": "接続",
+    "dependencies": "依存先",
+    "usedBy": "使用元",
+    "none": "なし",
+    "imports": "インポート",
+    "importedBy": "インポート元",
+    "noConnections": "接続なし"
+  },
+  "nodeExports": {
+    "title": "エクスポート",
+    "exportsHeader": "エクスポート"
+  },
+  "nodeLayers": {
+    "title": "レイヤー",
+    "layersHeader": "レイヤー",
+    "noLayers": "レイヤーデータがありません",
+    "dependencies": "依存関係",
+    "complexity": "複雑度",
+    "documentation": "ドキュメント",
+    "testing": "テスト",
+    "security": "セキュリティ",
+    "performance": "パフォーマンス",
+    "errorHandling": "エラーハンドリング",
+    "codeQuality": "コード品質",
+    "accessibility": "アクセシビリティ",
+    "api": "API",
+    "database": "データベース",
+    "configuration": "設定",
+    "infrastructure": "インフラストラクチャ"
+  },
+  "nodeLogbookActions": {
+    "disconnectAI": "AI接続を解除",
+    "connectToAI": "AIに接続"
+  }
+}

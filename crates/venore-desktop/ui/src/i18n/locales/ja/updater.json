@@ -1,0 +1,35 @@
+{
+  "notification": {
+    "checking": "確認中...",
+    "count": "{{count}} 個のモジュールが古くなっています",
+    "count_plural": "{{count}} 個のモジュールが古くなっています"
+  },
+  "report": {
+    "title": "コンテキスト更新が利用可能",
+    "description": "{{commits}} 件の新しいコミットが検出されました",
+    "commits": "{{count}} 件の新しいコミット",
+    "modules": "{{count}} 個の影響を受けるモジュール",
+    "filesChanged": "{{count}} 個のファイルが変更されました",
+    "regenerate": "{{count}} 個のモジュールを再生成",
+    "dismiss": "閉じる",
+    "selectAll": "すべて選択",
+    "deselectAll": "すべて解除"
+  },
+  "result": {
+    "title": "更新完了",
+    "regenerating": "コンテキストを再生成中...",
+    "regeneratingDescription": "古い .context.md ファイルを再生成しています",
+    "completedDescription": "コンテキストの再生成が完了しました",
+    "completed": "完了！",
+    "summary": "{{current}}/{{total}} モジュールを再生成しました",
+    "progress": "{{current}} / {{total}}",
+    "dismiss": "閉じる",
+    "markSynced": "同期済みとしてマーク",
+    "noProgress": "再生成データがありません"
+  },
+  "state": {
+    "branch": "ブランチ",
+    "interval": "確認間隔（分）",
+    "autoUpdate": "自動更新を有効にする"
+  }
+}

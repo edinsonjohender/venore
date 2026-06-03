@@ -1,0 +1,27 @@
+# EditorConfig — https://editorconfig.org/
+# Keeps indentation, line endings, and whitespace consistent across editors.
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+
+# Rust + TOML
+[*.{rs,toml}]
+indent_size = 4
+
+# Frontend, configs, docs
+[*.{ts,tsx,js,jsx,mjs,cjs,json,yml,yaml,html,css,scss}]
+indent_size = 2
+
+[*.md]
+indent_size = 2
+# Markdown uses trailing spaces for hard line breaks — don't strip them.
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab

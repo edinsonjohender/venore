@@ -1,0 +1,93 @@
+[
+  {
+    "name": "c01-find-def",
+    "project_kind": "code",
+    "user_message": "Where is the function that validates a project path defined?",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "Locate a definition. Should search, NOT list_files + read_file exploration."
+  },
+  {
+    "name": "c02-find-callers",
+    "project_kind": "code",
+    "user_message": "What calls build_system_prompt?",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "Callers query. Graph/search territory, not blind reads."
+  },
+  {
+    "name": "c03-explain-subsystem",
+    "project_kind": "code",
+    "user_message": "Explain how the chat context builder assembles the system prompt.",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "GATHER — the build_context case. Should pull relevant chunks in few calls, not read 10 files."
+  },
+  {
+    "name": "c04-impact",
+    "project_kind": "code",
+    "user_message": "What would break if I change the ToolExecutionContext struct?",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "Impact analysis — transitive callers/usages. Key case for build_context + transitive graph."
+  },
+  {
+    "name": "c05-locate-bug",
+    "project_kind": "code",
+    "user_message": "Logbook sections aren't saving. Find the relevant code.",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "Search before read. Should NOT start reading files at random."
+  },
+  {
+    "name": "c06-add-feature",
+    "project_kind": "code",
+    "user_message": "Add a tool that lists the project's largest files.",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "Should find the existing tool pattern (definitions + executor) before write_file."
+  },
+  {
+    "name": "c07-structure",
+    "project_kind": "code",
+    "user_message": "What modules does this project have?",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "STRUCTURE — the build_context case. One structural query, not a filesystem walk."
+  },
+  {
+    "name": "c08-greet",
+    "project_kind": "code",
+    "user_message": "hey, what's up?",
+    "expected_tools_any_of": [],
+    "notes": "Social. Should NOT call a tool — just reply with text."
+  },
+  {
+    "name": "c09-direct-read",
+    "project_kind": "code",
+    "user_message": "Show me the contents of Cargo.toml.",
+    "expected_tools_any_of": ["read_file"],
+    "notes": "A specific named file → read_file is correct here, not search."
+  },
+  {
+    "name": "c10-run-tests",
+    "project_kind": "code",
+    "user_message": "Run the test suite.",
+    "expected_tools_any_of": ["run_terminal_command", "spawn_agent"],
+    "notes": "Terminal action. Not exploration."
+  },
+  {
+    "name": "c11-grep",
+    "project_kind": "code",
+    "user_message": "Find all TODO comments in the codebase.",
+    "expected_tools_any_of": ["search_text"],
+    "notes": "Literal grep across files → search_text, not search_code (semantic)."
+  },
+  {
+    "name": "c12-cross-module",
+    "project_kind": "code",
+    "user_message": "How does the wizard talk to the ocean layout service?",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "GATHER cross-module — the build_context case. Should not explore both modules file by file."
+  },
+  {
+    "name": "c13-spanish",
+    "project_kind": "code",
+    "user_message": "¿dónde se construye el system prompt del chat?",
+    "expected_tools_any_of": ["search_code", "search_text"],
+    "notes": "Spanish input (bilingual check). Same intent as c03 — should still search, not explore."
+  }
+]

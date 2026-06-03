@@ -1,0 +1,90 @@
+{
+  "emptyState": {
+    "title": "开始对话",
+    "description": "向 AI 提问关于你的项目"
+  },
+  "input": {
+    "placeholder": "输入问题...",
+    "placeholderStreaming": "等待回复中...",
+    "sendTitle": "发送消息",
+    "stopTitle": "停止生成",
+    "addAttachment": "添加附件",
+    "attachFile": "附加文件",
+    "addContext": "添加上下文",
+    "removeAttachment": "移除",
+    "dragDropHint": "拖放文件到此处",
+    "fileTooLarge": "文件过大（最大 20MB）",
+    "maxAttachments": "最多 10 个文件",
+    "pasteImage": "粘贴的图片",
+    "model": "模型",
+    "unsupportedFile": "不支持的文件类型",
+    "newChat": "新对话",
+    "sendFailed": "消息发送失败"
+  },
+  "headerActions": {
+    "general": "通用",
+    "generalChat": "通用对话",
+    "newChat": "新对话",
+    "history": "对话历史",
+    "clearChat": "清除消息",
+    "deleteChat": "删除对话",
+    "closeChat": "关闭对话",
+    "popOut": "在新窗口中打开"
+  },
+  "message": {
+    "ai": "ai"
+  },
+  "sessionHistory": {
+    "loading": "加载中...",
+    "noSessions": "暂无对话记录",
+    "deleteSession": "删除",
+    "renameSession": "重命名"
+  },
+  "toolCall": {
+    "running": "运行中",
+    "completed": "完成",
+    "failed": "错误",
+    "denied": "已拒绝",
+    "pending": "等待中",
+    "output": "输出"
+  },
+  "contextSelector": {
+    "title": "添加上下文",
+    "noProject": "未设置项目路径。请先打开一个项目。",
+    "scanning": "扫描模块中...",
+    "noModules": "未找到 .context.md 文件"
+  },
+  "toolConfirm": {
+    "title": "AI 请求使用工具",
+    "allowOnce": "允许一次",
+    "allowSession": "本次会话允许",
+    "deny": "拒绝"
+  },
+  "askUser": {
+    "title": "Agent 需要你的输入",
+    "typeResponse": "输入回复..."
+  },
+  "taskList": {
+    "tasks": "任务"
+  },
+  "planView": {
+    "title": "待审批方案",
+    "approve": "批准",
+    "reject": "拒绝"
+  },
+  "subAgent": {
+    "agentLabel": "{{type}} agent",
+    "research": "调研",
+    "code": "编码",
+    "test": "测试"
+  },
+  "execution": {
+    "title": "执行"
+  },
+  "revert": {
+    "button": "还原到此处",
+    "confirmMessage": "这将撤销此时间点之后的所有文件更改。此操作无法撤销。",
+    "confirm": "还原",
+    "cancel": "取消"
+  }
+}

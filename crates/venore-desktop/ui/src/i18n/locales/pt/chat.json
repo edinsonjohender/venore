@@ -1,0 +1,90 @@
+{
+  "emptyState": {
+    "title": "Iniciar uma conversa",
+    "description": "Faça perguntas sobre seu projeto"
+  },
+  "input": {
+    "placeholder": "Pergunte algo...",
+    "placeholderStreaming": "Aguardando resposta...",
+    "sendTitle": "Enviar mensagem",
+    "stopTitle": "Parar geração",
+    "addAttachment": "Adicionar anexo",
+    "attachFile": "Anexar arquivo",
+    "addContext": "Adicionar contexto",
+    "removeAttachment": "Remover",
+    "dragDropHint": "Solte arquivos aqui",
+    "fileTooLarge": "Arquivo muito grande (max 20MB)",
+    "maxAttachments": "Maximo 10 arquivos",
+    "pasteImage": "Imagem colada",
+    "model": "Modelo",
+    "unsupportedFile": "Tipo de arquivo nao suportado",
+    "newChat": "Novo Chat",
+    "sendFailed": "Falha ao enviar mensagem"
+  },
+  "headerActions": {
+    "general": "Geral",
+    "generalChat": "Chat geral",
+    "newChat": "Novo chat",
+    "history": "Histórico de chat",
+    "clearChat": "Limpar mensagens",
+    "deleteChat": "Excluir chat",
+    "closeChat": "Fechar chat",
+    "popOut": "Abrir em nova janela"
+  },
+  "message": {
+    "ai": "ai"
+  },
+  "sessionHistory": {
+    "loading": "Carregando...",
+    "noSessions": "Nenhuma conversa ainda",
+    "deleteSession": "Excluir",
+    "renameSession": "Renomear"
+  },
+  "toolCall": {
+    "running": "Executando",
+    "completed": "Concluído",
+    "failed": "Erro",
+    "denied": "Negado",
+    "pending": "Pendente",
+    "output": "Saída"
+  },
+  "contextSelector": {
+    "title": "Adicionar contexto",
+    "noProject": "Nenhum caminho de projeto definido. Abra um projeto primeiro.",
+    "scanning": "Escaneando módulos...",
+    "noModules": "Nenhum arquivo .context.md encontrado"
+  },
+  "toolConfirm": {
+    "title": "A IA quer usar uma ferramenta",
+    "allowOnce": "Permitir uma vez",
+    "allowSession": "Permitir na sessão",
+    "deny": "Negar"
+  },
+  "askUser": {
+    "title": "O agente precisa da sua resposta",
+    "typeResponse": "Digite uma resposta..."
+  },
+  "taskList": {
+    "tasks": "Tarefas"
+  },
+  "planView": {
+    "title": "Plano para aprovação",
+    "approve": "Aprovar",
+    "reject": "Rejeitar"
+  },
+  "subAgent": {
+    "agentLabel": "Agente de {{type}}",
+    "research": "Pesquisa",
+    "code": "Código",
+    "test": "Teste"
+  },
+  "execution": {
+    "title": "Execução"
+  },
+  "revert": {
+    "button": "Reverter para este ponto",
+    "confirmMessage": "Isso desfara todas as alteracoes de arquivos apos este ponto. Isso nao pode ser desfeito.",
+    "confirm": "Reverter",
+    "cancel": "Cancelar"
+  }
+}

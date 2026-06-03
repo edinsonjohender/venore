@@ -1,0 +1,110 @@
+{
+  "panel": {
+    "title": "Proyecto",
+    "noProject": "No hay proyecto cargado",
+    "modulesCount": "{{count}} modulos",
+    "connectionsCount": "{{count}} conexiones",
+    "freshCount": "{{count}} actualizados",
+    "staleCount": "{{count}} desactualizados",
+    "missingCount": "{{count}} faltantes",
+    "loading": "Cargando...",
+    "noAnalysis": "Sin analisis",
+    "openInExplorer": "Abrir en explorador",
+    "reAnalyze": "Re-analizar",
+    "analyzing": "Analizando...",
+    "lastAnalyzed": "Ultimo analisis",
+    "runWizard": "Ejecutar Wizard",
+    "resnapshotTooltip": "Regenerar snapshot .venore/ desde el codigo actual",
+    "resnapshotSuccess": "Snapshot actualizado",
+    "resnapshotFailed": "No se pudo actualizar el snapshot",
+    "resnapshotParts": {
+      "modules": "{{n}} modulos",
+      "layers": "{{n}} capas",
+      "hashes": "{{n}} hashes"
+    }
+  },
+  "tabs": {
+    "context": "Contexto",
+    "files": "Archivos"
+  },
+  "context": {
+    "title": "Archivos de Contexto",
+    "fresh": "Actualizado",
+    "stale": "Desactualizado",
+    "missing": "Faltante",
+    "all": "Todos",
+    "regenerate": "Regenerar",
+    "regenerateAll": "Regenerar Todos los Desactualizados",
+    "noContextFiles": "No se encontraron archivos de contexto",
+    "noAnalysisAvailable": "No hay analisis disponible",
+    "runWizardHint": "Ejecuta el wizard para analizar tu proyecto primero.",
+    "noModulesFound": "No se encontraron modulos",
+    "searchModules": "Buscar en {{count}} modulos...",
+    "filterByStatus": "Filtrar por estado",
+    "filteredCount": "{{filtered}} de {{total}}",
+    "lastGenerated": "Generado",
+    "viewFile": "Ver Archivo"
+  },
+  "files": {
+    "title": "Archivos",
+    "noFiles": "No se encontraron archivos",
+    "noResults": "Sin resultados",
+    "noAnalysisAvailable": "No hay analisis disponible",
+    "runWizardHint": "Ejecuta el wizard para analizar tu proyecto primero.",
+    "searchPlaceholder": "Buscar archivos...",
+    "directories": "Directorios",
+    "totalFiles": "{{count}} archivos"
+  },
+  "collapsedPill": {
+    "project": "Proyecto",
+    "expand": "Expandir"
+  },
+  "node": {
+    "title": "Detalles del Nodo",
+    "noNode": "Selecciona un nodo para ver detalles",
+    "noModuleData": "No hay datos del modulo disponibles",
+    "runWizardHint": "Ejecuta el wizard para ver los detalles completos del modulo (archivos, dependencias, exports)"
+  },
+  "nodeOverview": {
+    "module": "Modulo",
+    "path": "Ruta",
+    "copyPath": "Copiar ruta",
+    "fileCount": "{{count}} archivo",
+    "fileCount_other": "{{count}} archivos"
+  },
+  "nodeConnections": {
+    "title": "Conexiones",
+    "dependencies": "DEPENDENCIAS",
+    "usedBy": "USADO POR",
+    "none": "Ninguno",
+    "imports": "Importaciones",
+    "importedBy": "Importado Por",
+    "noConnections": "Sin conexiones"
+  },
+  "nodeExports": {
+    "title": "Exports",
+    "exportsHeader": "EXPORTS"
+  },
+  "nodeLayers": {
+    "title": "Capas",
+    "layersHeader": "CAPAS",
+    "noLayers": "No hay datos de capas disponibles",
+    "dependencies": "Dependencias",
+    "complexity": "Complejidad",
+    "documentation": "Documentacion",
+    "testing": "Testing",
+    "security": "Seguridad",
+    "performance": "Rendimiento",
+    "errorHandling": "Manejo de Errores",
+    "codeQuality": "Calidad de Codigo",
+    "accessibility": "Accesibilidad",
+    "api": "API",
+    "database": "Base de Datos",
+    "configuration": "Configuracion",
+    "infrastructure": "Infraestructura"
+  },
+  "nodeLogbookActions": {
+    "disconnectAI": "Desconectar IA",
+    "connectToAI": "Conectar a IA"
+  }
+}

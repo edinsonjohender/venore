@@ -1,0 +1,74 @@
+{
+  "LLM_NO_API_KEY": {
+    "message": "Nenhuma chave de API configurada.",
+    "suggestion": "Vá em Configurações e adicione sua chave de API."
+  },
+  "LLM_RATE_LIMIT": {
+    "message": "Limite de requisições atingido.",
+    "suggestion": "Aguarde um momento e tente novamente."
+  },
+  "LLM_CONTEXT_TOO_LONG": {
+    "message": "Conversa longa demais para este modelo.",
+    "suggestion": "Inicie um novo chat ou reduza o contexto."
+  },
+  "LLM_PROVIDER_ERROR": {
+    "message": "O provedor de AI retornou um erro.",
+    "suggestion": "Verifique sua conexão ou tente outro provedor."
+  },
+  "LLM_STREAM_ERROR": {
+    "message": "A resposta da AI foi interrompida.",
+    "suggestion": "Tente enviar sua mensagem novamente."
+  },
+  "LLM_INVALID_PROVIDER": {
+    "message": "Provedor de AI selecionado é inválido.",
+    "suggestion": "Verifique as configurações do provedor em Configuração de AI."
+  },
+  "LLM_INVALID_REQUEST": {
+    "message": "Requisição inválida ao provedor de AI.",
+    "suggestion": "Tente reformular sua mensagem."
+  },
+  "LLM_INVALID_RESPONSE": {
+    "message": "Resposta inválida recebida do provedor de AI.",
+    "suggestion": "Tente novamente ou mude para outro provedor."
+  },
+  "LLM_MODEL_NOT_AVAILABLE": {
+    "message": "Modelo não disponível para este provedor.",
+    "suggestion": "Escolha outro modelo em Configurações > Configuração IA."
+  },
+  "GITHUB_AUTH_REQUIRED": {
+    "message": "Autenticação do GitHub necessária.",
+    "suggestion": "Conecte sua conta do GitHub em Configurações."
+  },
+  "GITHUB_RATE_LIMITED": {
+    "message": "Limite de requisições do GitHub atingido.",
+    "suggestion": "Aguarde alguns minutos e tente novamente."
+  },
+  "GITHUB_REPO_NOT_LINKED": {
+    "message": "Nenhum repositório do GitHub vinculado.",
+    "suggestion": "Vincule um repositório nas configurações do projeto."
+  },
+  "TERMINAL_ERROR": {
+    "message": "Erro no Terminal.",
+    "suggestion": "Tente reiniciar o Terminal."
+  },
+  "TERMINAL_SPAWN_FAILED": {
+    "message": "Falha ao iniciar o Terminal.",
+    "suggestion": "Verifique a configuração do shell do seu sistema."
+  },
+  "DATABASE_LOCKED": {
+    "message": "O banco de dados está temporariamente ocupado.",
+    "suggestion": "Aguarde um momento e tente novamente."
+  },
+  "DATABASE_NOT_INITIALIZED": {
+    "message": "O banco de dados ainda não está pronto.",
+    "suggestion": "Aguarde o Venore terminar de iniciar."
+  },
+  "TIMEOUT": {
+    "message": "A operação expirou.",
+    "suggestion": "Tente novamente."
+  },
+  "NOT_FOUND": {
+    "message": "Recurso não encontrado.",
+    "suggestion": "O Venore pode ainda estar iniciando. Aguarde um momento e tente novamente."
+  }
+}

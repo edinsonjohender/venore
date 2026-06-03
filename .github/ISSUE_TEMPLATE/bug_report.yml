@@ -1,0 +1,83 @@
+name: Bug report
+description: Report a reproducible problem with Venore.
+title: "[bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Please fill out every section — incomplete reports get closed.
+
+        **Do not file security vulnerabilities here.** See [SECURITY.md](../SECURITY.md).
+
+  - type: checkboxes
+    id: prereqs
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I searched existing issues and confirmed this is not a duplicate.
+          required: true
+        - label: I am running the latest released version of Venore (or `dev` branch HEAD).
+          required: true
+        - label: I have read [CONTRIBUTING.md](../CONTRIBUTING.md).
+          required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing the bug.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps from a clean state. Include any commands, file contents, or sample input needed.
+      placeholder: |
+        1. Open Venore
+        2. Create a new Knowledge project
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead. Include error messages verbatim.
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and version
+      placeholder: "Windows 11 23H2 / macOS 14.4 / Ubuntu 24.04"
+    validations:
+      required: true
+
+  - type: input
+    id: venore-version
+    attributes:
+      label: Venore version or commit
+      placeholder: "v0.1.0 or commit hash"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and screenshots
+      description: |
+        Paste any relevant logs from `RUST_LOG=debug` runs.
+        Screenshots are welcome for UI bugs. Redact API keys and personal info before posting.
+      render: shell

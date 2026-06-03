@@ -1,0 +1,134 @@
+{
+  "statusBar": {
+    "toggleTerminal": "Alternar Terminal (Ctrl+`)",
+    "terminal": "Terminal"
+  },
+  "activityBar": {
+    "backToLauncher": "Voltar ao Início",
+    "terminal": "Terminal",
+    "ai": "AI"
+  },
+  "terminalTabBar": {
+    "terminal": "Terminal",
+    "newTerminal": "Novo terminal",
+    "closeTerminalPanel": "Fechar painel do terminal",
+    "copy": "Copiar",
+    "paste": "Colar",
+    "clear": "Limpar"
+  },
+  "toolbar": {
+    "navigate": "Navegar",
+    "moveNode": "Mover Nó",
+    "move": "Mover",
+    "canvasMode": "Modo do canvas"
+  },
+  "floatingPanel": {
+    "dockPanel": "Fixar painel",
+    "closePanel": "Fechar painel"
+  },
+  "canvasHeader": {
+    "unsavedChanges": "\"{{label}}\" tem alterações não salvas. Fechar mesmo assim?"
+  },
+  "panel": {
+    "undockPanel": "Desafixar painel"
+  },
+  "windowControls": {
+    "minimize": "Minimizar",
+    "maximize": "Maximizar",
+    "close": "Fechar"
+  },
+  "aiIndicator": {
+    "disconnectAll": "Desconectar todos",
+    "label": "Indicador de AI"
+  },
+  "tabs": {
+    "ocean": "Ocean",
+    "ai": "AI"
+  },
+  "aiConfig": {
+    "title": "Configuração de AI",
+    "requiredTitle": "Configuração de AI Necessária",
+    "requiredDescription": "Configure pelo menos um provedor de AI para continuar.",
+    "manageProviders": "Gerencie seus provedores de AI",
+    "description": "Configure provedores de AI e roteamento de tarefas.",
+    "providers": "Provedores",
+    "taskRouting": "Roteamento de Tarefas",
+    "testConnection": "Testar Conexão",
+    "testing": "Testando...",
+    "connectionSuccess": "Conexão bem-sucedida!",
+    "connectionFailed": "Falha na conexão",
+    "apiKey": "Chave de API",
+    "apiKeyPlaceholder": "Digite a chave de API...",
+    "apiKeySet": "Chave de API configurada",
+    "apiKeyNotSet": "Nenhuma chave de API configurada",
+    "setKey": "Definir Chave",
+    "removeKey": "Remover Chave",
+    "confirmRemoveKey": "Remover chave de API para {{provider}}?",
+    "model": "Modelo",
+    "provider": "Provedor",
+    "noModels": "Nenhum modelo disponível",
+    "ollamaEndpoint": "Endpoint do Ollama",
+    "ollamaNotRunning": "Ollama não está em execução",
+    "selectModel": "Selecionar modelo...",
+    "selectProvider": "Selecionar provedor...",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "done": "Concluído",
+    "apiKeys": "Chaves de API",
+    "providersConfigured": "{{count}} provedor configurado",
+    "providersConfigured_other": "{{count}} provedores configurados",
+    "connectOneProvider": "Conecte pelo menos um provedor",
+    "apiKeyLabel": "Chave de API {{name}}",
+    "getApiKey": "Obter Chave de API",
+    "connected": "Conectado!",
+    "saveAndTest": "Salvar e Testar",
+    "taskConfiguration": "Configuração de Tarefas",
+    "chooseProviderModel": "Escolha provedor e modelo para cada tarefa",
+    "testOllamaConnection": "Testar conexão com Ollama",
+    "remove": "Remover",
+    "configure": "Configurar",
+    "noProviders": "Nenhum provedor configurado"
+  },
+  "mesh": {
+    "title": "MESH",
+    "transportRunning": "Transporte: Ativo (porta {{port}})",
+    "transportStopped": "Transporte: Inativo",
+    "noPeersFound": "Nenhuma outra instância encontrada",
+    "connect": "Conectar",
+    "connecting": "Conectando...",
+    "connected": "Conectado",
+    "disconnect": "Desconectar",
+    "refresh": "Atualizar",
+    "indicatorTitle": "{{count}} conectados",
+    "indicatorTitleEmpty": "Mesh",
+    "moduleCount": "{{count}} módulos"
+  },
+  "prompts": {
+    "title": "Prompts",
+    "systemPrompt": "Prompt do Sistema",
+    "editPrompt": "Editar Prompt",
+    "resetToDefault": "Restaurar Padrão",
+    "confirmReset": "Restaurar este prompt para a versão padrão?",
+    "version": "v{{version}}",
+    "noPromptSelected": "Selecione uma tarefa para ver seu prompt",
+    "savedSuccessfully": "Prompt salvo com sucesso",
+    "resetSuccessfully": "Prompt restaurado para o padrão",
+    "tasks": {
+      "chat": "Chat",
+      "context": "Contexto",
+      "github": "GitHub",
+      "analysis": "Análise",
+      "contextGeneration": "Geração de Contexto",
+      "prReview": "Revisão de PR"
+    },
+    "tasksLabel": "Tarefas",
+    "selectTask": "Selecione uma tarefa para editar prompts",
+    "usingBasePrompt": "Usando prompt base. Sem personalização para",
+    "customizeFor": "Personalizar para {{provider}}",
+    "reset": "Redefinir",
+    "save": "Salvar",
+    "versionHistory": "Histórico de Versões",
+    "versionHistoryFor": "Histórico de versões de \"{{name}}\"",
+    "noVersionHistory": "Sem histórico de versões"
+  }
+}

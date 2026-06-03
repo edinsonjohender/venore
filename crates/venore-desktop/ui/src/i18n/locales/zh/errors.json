@@ -1,0 +1,74 @@
+{
+  "LLM_NO_API_KEY": {
+    "message": "未配置 API 密钥。",
+    "suggestion": "前往设置并添加您的 API 密钥。"
+  },
+  "LLM_RATE_LIMIT": {
+    "message": "已达到速率限制。",
+    "suggestion": "请稍等片刻后重试。"
+  },
+  "LLM_CONTEXT_TOO_LONG": {
+    "message": "对话内容超出该模型的长度限制。",
+    "suggestion": "请开始新的对话或减少上下文内容。"
+  },
+  "LLM_PROVIDER_ERROR": {
+    "message": "AI 提供商返回了错误。",
+    "suggestion": "请检查您的网络连接或尝试其他提供商。"
+  },
+  "LLM_STREAM_ERROR": {
+    "message": "AI 响应中断。",
+    "suggestion": "请尝试重新发送您的消息。"
+  },
+  "LLM_INVALID_PROVIDER": {
+    "message": "选择的 AI 提供商无效。",
+    "suggestion": "请在 AI 配置中检查您的提供商设置。"
+  },
+  "LLM_INVALID_REQUEST": {
+    "message": "发送给 AI 提供商的请求无效。",
+    "suggestion": "请尝试重新措辞您的消息。"
+  },
+  "LLM_INVALID_RESPONSE": {
+    "message": "收到来自 AI 提供商的无效响应。",
+    "suggestion": "请重试或切换到其他提供商。"
+  },
+  "LLM_MODEL_NOT_AVAILABLE": {
+    "message": "该模型不适用于此提供商。",
+    "suggestion": "在设置 > AI 配置中选择其他模型。"
+  },
+  "GITHUB_AUTH_REQUIRED": {
+    "message": "需要 GitHub 身份验证。",
+    "suggestion": "请在设置中连接您的 GitHub 账户。"
+  },
+  "GITHUB_RATE_LIMITED": {
+    "message": "已达到 GitHub 速率限制。",
+    "suggestion": "请等待几分钟后重试。"
+  },
+  "GITHUB_REPO_NOT_LINKED": {
+    "message": "未关联 GitHub 仓库。",
+    "suggestion": "请在项目设置中关联仓库。"
+  },
+  "TERMINAL_ERROR": {
+    "message": "Terminal 错误。",
+    "suggestion": "请尝试重启 Terminal。"
+  },
+  "TERMINAL_SPAWN_FAILED": {
+    "message": "无法启动 Terminal。",
+    "suggestion": "请检查您的系统 Shell 配置。"
+  },
+  "DATABASE_LOCKED": {
+    "message": "数据库暂时繁忙。",
+    "suggestion": "请稍等片刻后重试。"
+  },
+  "DATABASE_NOT_INITIALIZED": {
+    "message": "数据库尚未就绪。",
+    "suggestion": "请等待 Venore 完成启动。"
+  },
+  "TIMEOUT": {
+    "message": "操作超时。",
+    "suggestion": "请重试。"
+  },
+  "NOT_FOUND": {
+    "message": "未找到资源。",
+    "suggestion": "Venore 可能仍在启动中。请稍等片刻后重试。"
+  }
+}

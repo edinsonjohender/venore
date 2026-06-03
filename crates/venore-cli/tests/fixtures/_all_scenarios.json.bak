@@ -1,0 +1,142 @@
+[
+  {
+    "name": "knowledge-explicit-write",
+    "project_kind": "knowledge",
+    "user_message": "agrega una sección llamada 'Decisiones' al nodo principal con el texto: 'Usar OpenCV con HSV.'",
+    "expected_tools_any_of": ["propose_logbook_write", "list_logbooks"],
+    "notes": "Caso explícito (baseline). El usuario nombra 'sección', 'nodo', 'agregar'."
+  },
+  {
+    "name": "knowledge-natural-anota",
+    "project_kind": "knowledge",
+    "user_message": "anota: para detectar el objeto vamos a usar HSV con OpenCV.",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "El usuario dice 'anota' sin más. La AI debería inferir bitácora."
+  },
+  {
+    "name": "knowledge-natural-guarda",
+    "project_kind": "knowledge",
+    "user_message": "guarda esto en mis notas: la cámara debería estar a 1.5m sobre la mesa.",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "'Guarda' + 'mis notas'. Mismo objetivo, fraseo distinto."
+  },
+  {
+    "name": "knowledge-natural-toma-nota",
+    "project_kind": "knowledge",
+    "user_message": "toma nota de que el proyector debe estar calibrado antes del primer frame.",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "Conjugación 'toma nota'."
+  },
+  {
+    "name": "knowledge-recordame",
+    "project_kind": "knowledge",
+    "user_message": "recuérdame que tenemos que comprar una cámara con buen rango dinámico.",
+    "expected_tools_any_of": ["propose_logbook_write", "task_create"],
+    "notes": "Ambiguo: nota o tarea. Cualquiera de las dos sería razonable."
+  },
+  {
+    "name": "knowledge-organic-list-then-write",
+    "project_kind": "knowledge",
+    "user_message": "qué bitácoras tengo? agrega una sección de TODOs en el lighthouse.",
+    "expected_tools_any_of": ["list_logbooks", "propose_logbook_write"],
+    "notes": "Doble intención: listar y escribir. Idealmente la AI hace las dos en una vuelta."
+  },
+  {
+    "name": "knowledge-search-first",
+    "project_kind": "knowledge",
+    "user_message": "tengo algo escrito sobre OpenCV?",
+    "expected_tools_any_of": ["search_logbook"],
+    "notes": "Búsqueda. NO debería escribir."
+  },
+  {
+    "name": "knowledge-list-only",
+    "project_kind": "knowledge",
+    "user_message": "qué nodos de conocimiento tenemos?",
+    "expected_tools_any_of": ["list_logbooks"],
+    "notes": "Listar. NO debería escribir nada."
+  },
+  {
+    "name": "knowledge-conversation-no-tool",
+    "project_kind": "knowledge",
+    "user_message": "hola, ¿cómo estás?",
+    "expected_tools_any_of": [],
+    "notes": "Pregunta social, no debería llamar tool. Solo responder."
+  },
+  {
+    "name": "knowledge-vague-help",
+    "project_kind": "knowledge",
+    "user_message": "ayúdame con este proyecto",
+    "expected_tools_any_of": ["list_logbooks", "ask_user"],
+    "notes": "Demasiado vago. Debería listar o preguntar, no inventar."
+  },
+  {
+    "name": "knowledge-research-prompt",
+    "project_kind": "knowledge",
+    "user_message": "investiga qué librerías de tracking de objetos existen en Python además de OpenCV.",
+    "expected_tools_any_of": ["web_search", "plan_hexagons", "task_create"],
+    "notes": "Investigación. Web search o knowledge tools."
+  },
+  {
+    "name": "knowledge-no-file-write",
+    "project_kind": "knowledge",
+    "user_message": "crea un main.py con el bucle del juego",
+    "expected_tools_any_of": ["ask_user", "propose_logbook_write"],
+    "notes": "El usuario pide crear archivo en proyecto Knowledge. La AI NO tiene write_file en este modo. Debería pedir contexto o reinterpretar como bitácora."
+  },
+  {
+    "name": "knowledge-update-existing",
+    "project_kind": "knowledge",
+    "user_message": "actualiza la sección de decisiones: ahora vamos a usar Pygame en vez de Pyglet.",
+    "expected_tools_any_of": ["read_logbook", "propose_logbook_write", "list_logbooks"],
+    "notes": "Edit de sección existente. Ideal: read primero, luego propose con edit_section_id."
+  },
+  {
+    "name": "knowledge-multiline-content",
+    "project_kind": "knowledge",
+    "user_message": "anota lo siguiente como sección 'Hardware':\n- Cámara Logitech C920\n- Proyector cualquiera de 1080p\n- Mesa blanca mate",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "Contenido multilínea. La AI debe pasar el bloque entero a content_markdown."
+  },
+  {
+    "name": "knowledge-write-then-confirm",
+    "project_kind": "knowledge",
+    "user_message": "agrega una nota llamada 'Riesgos' y dime después qué le puse",
+    "expected_tools_any_of": ["propose_logbook_write", "read_logbook"],
+    "notes": "Escribir + leer para verificar. Multi-tool en un turno."
+  },
+  {
+    "name": "code-bash-task",
+    "project_kind": "code",
+    "user_message": "lista los archivos del directorio src",
+    "expected_tools_any_of": ["list_files", "run_terminal_command"],
+    "notes": "Modo Code. Debería tener acceso a list_files."
+  },
+  {
+    "name": "code-edit-task",
+    "project_kind": "code",
+    "user_message": "abre src/main.py y muéstrame las primeras 30 líneas",
+    "expected_tools_any_of": ["read_file"],
+    "notes": "Modo Code. read_file."
+  },
+  {
+    "name": "code-write-task",
+    "project_kind": "code",
+    "user_message": "crea un archivo hello.py con un print de hola mundo",
+    "expected_tools_any_of": ["write_file"],
+    "notes": "Modo Code. write_file."
+  },
+  {
+    "name": "code-search-task",
+    "project_kind": "code",
+    "user_message": "busca todas las llamadas a TODO en el proyecto",
+    "expected_tools_any_of": ["search_text"],
+    "notes": "Modo Code. search_text."
+  },
+  {
+    "name": "code-conversation-no-tool",
+    "project_kind": "code",
+    "user_message": "explícame qué es una closure en Rust",
+    "expected_tools_any_of": [],
+    "notes": "Pregunta conceptual. NO debería llamar tools, solo responder."
+  }
+]

@@ -1,0 +1,70 @@
+[package]
+name = "venore-desktop"
+version = "0.1.0"
+edition = "2021"
+authors = ["Edinson Johender <hi@skalar.app>"]
+license = "AGPL-3.0-or-later"
+description = "Tauri desktop application for Venore"
+
+# Tauri uses a lib + bin pattern.
+# lib: for testable logic
+# bin: for the main executable
+[lib]
+name = "venore_desktop_lib"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[[bin]]
+name = "venore-desktop"
+path = "src/main.rs"
+
+[dependencies]
+# Local workspace dependency
+venore-core = { path = "../venore-core" }
+
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+uuid = { version = "1.11", features = ["v4", "serde"] }
+chrono = { workspace = true }
+tracing-subscriber = { workspace = true }
+tracing-appender = "0.2"
+dirs = { workspace = true }
+once_cell = "1.20"
+futures = { workspace = true }
+
+# Tauri
+# To debug a release build, temporarily add "devtools" to features (gives F12
+# inspector), then remove before shipping — DevTools must not ship to users.
+tauri = { version = "2.1", features = [] }
+
+# Tauri plugins (optional)
+tauri-plugin-fs = "2.0"
+tauri-plugin-dialog = "2.0"
+tauri-plugin-shell = "2.0"
+tauri-plugin-oauth = "2"
+tauri-plugin-os = "2"
+
+# HTTP client (for cloud user profile fetch)
+reqwest = { workspace = true }
+
+# URL parsing (for OAuth callback)
+url = "2"
+
+# Base64 encoding (for file attachments)
+base64 = "0.22"
+
+# OS keyring (for cloud token storage)
+keyring = { workspace = true }
+
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+
+[features]
+# Default: custom protocol for production builds
+default = ["custom-protocol"]
+# Enable devtools during development
+devtools = ["tauri/devtools"]
+custom-protocol = ["tauri/custom-protocol"]

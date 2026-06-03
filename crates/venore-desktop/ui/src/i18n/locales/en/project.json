@@ -1,0 +1,110 @@
+{
+  "panel": {
+    "title": "Project",
+    "noProject": "No project loaded",
+    "modulesCount": "{{count}} modules",
+    "connectionsCount": "{{count}} connections",
+    "freshCount": "{{count}} fresh",
+    "staleCount": "{{count}} stale",
+    "missingCount": "{{count}} missing",
+    "loading": "Loading...",
+    "noAnalysis": "No analysis",
+    "openInExplorer": "Open in Explorer",
+    "reAnalyze": "Re-analyze",
+    "analyzing": "Analyzing...",
+    "lastAnalyzed": "Last analyzed",
+    "runWizard": "Run Wizard",
+    "resnapshotTooltip": "Refresh .venore/ snapshot from current code",
+    "resnapshotSuccess": "Snapshot refreshed",
+    "resnapshotFailed": "Snapshot refresh failed",
+    "resnapshotParts": {
+      "modules": "{{n}} modules",
+      "layers": "{{n}} layers",
+      "hashes": "{{n}} hashes"
+    }
+  },
+  "tabs": {
+    "context": "Context",
+    "files": "Files"
+  },
+  "context": {
+    "title": "Context Files",
+    "fresh": "Fresh",
+    "stale": "Stale",
+    "missing": "Missing",
+    "all": "All",
+    "regenerate": "Regenerate",
+    "regenerateAll": "Regenerate All Stale",
+    "noContextFiles": "No context files found",
+    "noAnalysisAvailable": "No analysis available",
+    "runWizardHint": "Run the wizard to analyze your project first.",
+    "noModulesFound": "No modules found",
+    "searchModules": "Search {{count}} modules...",
+    "filterByStatus": "Filter by status",
+    "filteredCount": "{{filtered}} of {{total}}",
+    "lastGenerated": "Generated",
+    "viewFile": "View File"
+  },
+  "files": {
+    "title": "Files",
+    "noFiles": "No files found",
+    "noResults": "No results",
+    "noAnalysisAvailable": "No analysis available",
+    "runWizardHint": "Run the wizard to analyze your project first.",
+    "searchPlaceholder": "Search files...",
+    "directories": "Directories",
+    "totalFiles": "{{count}} files"
+  },
+  "collapsedPill": {
+    "project": "Project",
+    "expand": "Expand"
+  },
+  "node": {
+    "title": "Node Details",
+    "noNode": "Select a node to view details",
+    "noModuleData": "No module data available",
+    "runWizardHint": "Run the wizard to see full module details (files, dependencies, exports)"
+  },
+  "nodeOverview": {
+    "module": "Module",
+    "path": "Path",
+    "copyPath": "Copy path",
+    "fileCount": "{{count}} file",
+    "fileCount_other": "{{count}} files"
+  },
+  "nodeConnections": {
+    "title": "Connections",
+    "dependencies": "DEPENDENCIES",
+    "usedBy": "USED BY",
+    "none": "None",
+    "imports": "Imports",
+    "importedBy": "Imported By",
+    "noConnections": "No connections"
+  },
+  "nodeExports": {
+    "title": "Exports",
+    "exportsHeader": "EXPORTS"
+  },
+  "nodeLayers": {
+    "title": "Layers",
+    "layersHeader": "LAYERS",
+    "noLayers": "No layer data available",
+    "dependencies": "Dependencies",
+    "complexity": "Complexity",
+    "documentation": "Documentation",
+    "testing": "Testing",
+    "security": "Security",
+    "performance": "Performance",
+    "errorHandling": "Error Handling",
+    "codeQuality": "Code Quality",
+    "accessibility": "Accessibility",
+    "api": "API",
+    "database": "Database",
+    "configuration": "Configuration",
+    "infrastructure": "Infrastructure"
+  },
+  "nodeLogbookActions": {
+    "disconnectAI": "Disconnect AI",
+    "connectToAI": "Connect to AI"
+  }
+}

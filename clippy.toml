@@ -1,0 +1,9 @@
+# Clippy configuration.
+# Lints themselves stay at clippy's defaults; this file just tunes a few
+# thresholds we use across the workspace.
+
+# Allow slightly longer chains of map/and_then/etc. before clippy complains —
+# the analysis pipeline and tool executors have legitimately long iterator
+# chains.
+too-many-arguments-threshold = 8
+type-complexity-threshold = 350

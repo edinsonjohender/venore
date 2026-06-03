@@ -1,0 +1,5 @@
+# Rustfmt — pin defaults so `cargo fmt` produces the same output across
+# editors and CI regardless of the local rustfmt version drifting.
+# Anything not listed here uses the rustfmt default for the edition.
+
+edition = "2021"

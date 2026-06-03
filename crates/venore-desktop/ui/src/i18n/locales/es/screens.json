@@ -1,0 +1,66 @@
+{
+  "launcher": {
+    "tagline": "La Capa de Contexto para Ingeniería Autónoma",
+    "newCodebase": "Nuevo Codebase",
+    "newCodebaseDescription": "Crear o analizar un codebase",
+    "newKnowledge": "Nuevo Conocimiento",
+    "newKnowledgeDescription": "Investigación de feature con AI",
+    "newKnowledgeModalDescription": "Crea una isla de conocimiento para investigar una feature con AI.",
+    "openExisting": "Abrir Codebase Existente...",
+    "dragDropHint": "o arrastra y suelta una carpeta de proyecto",
+    "selectAI": "Seleccionar AI",
+    "version": "v2.0.0 Alpha",
+    "recentProjects": "Proyectos Recientes",
+    "clearAllRecent": "Limpiar todos los proyectos recientes",
+    "removeFromRecent": "Quitar de recientes",
+    "selectProjectFolder": "Seleccionar Carpeta del Proyecto",
+    "unnamed": "Sin nombre",
+    "cloneFromGithub": "Clonar desde GitHub",
+    "cloneFromGithubDescription": "Clonar un repositorio y configurar el contexto",
+    "openNotVenore": "Esta carpeta todavía no es un proyecto Venore.",
+    "openRunWizardHint": "Corre el wizard de onboarding para configurarla.",
+    "openRunWizardAction": "Correr wizard",
+    "openFailed": "No se pudo abrir el proyecto",
+    "openRestoredPrefix": "Restaurado",
+    "openEmpty": "Proyecto abierto",
+    "openModulesPart": "{{n}} módulos",
+    "openLayersPart": "{{n}} capas",
+    "openMemoryPart": "memoria del proyecto",
+    "openStalePart": "{{n}} desactualizados",
+    "openRecentFailed": "No se puede abrir {{name}}"
+  },
+  "boot": {
+    "phases": {
+      "booting": {
+        "title": "Iniciando Venore",
+        "description": "Inicializando aplicación..."
+      },
+      "checking": {
+        "title": "Cargando Servicios",
+        "description": "Verificando componentes del sistema..."
+      },
+      "ready": {
+        "title": "Listo",
+        "description": "Aplicación inicializada correctamente"
+      },
+      "error": {
+        "title": "Error al Iniciar",
+        "description": "Ocurrió un error durante la inicialización"
+      }
+    },
+    "checks": {
+      "backend": "Backend",
+      "database": "Base de datos",
+      "llmGateway": "LLM Gateway",
+      "aiConfiguration": "Configuración de AI"
+    },
+    "retry": "Reintentar",
+    "loadedIn": "Cargado en {{duration}}ms",
+    "errors": {
+      "backendInitFailed": "Falló la inicialización del backend",
+      "databaseCheckFailed": "Falló la verificación de la base de datos",
+      "llmGatewayCheckFailed": "Falló la verificación del LLM Gateway",
+      "aiConfigLoadFailed": "Falló la carga de configuración de AI"
+    }
+  }
+}

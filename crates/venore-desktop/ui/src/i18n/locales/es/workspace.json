@@ -1,0 +1,156 @@
+{
+  "statusBar": {
+    "toggleTerminal": "Alternar Terminal (Ctrl+`)",
+    "terminal": "Terminal"
+  },
+  "activityBar": {
+    "backToLauncher": "Volver al Launcher",
+    "terminal": "Terminal",
+    "ai": "AI"
+  },
+  "terminalTabBar": {
+    "terminal": "Terminal",
+    "newTerminal": "Nuevo Terminal",
+    "closeTerminalPanel": "Cerrar panel de Terminal",
+    "copy": "Copiar",
+    "paste": "Pegar",
+    "clear": "Limpiar"
+  },
+  "toolbar": {
+    "navigate": "Navegar",
+    "moveNode": "Mover Nodo",
+    "move": "Mover",
+    "canvasMode": "Modo canvas"
+  },
+  "floatingPanel": {
+    "dockPanel": "Anclar panel",
+    "closePanel": "Cerrar panel"
+  },
+  "canvasHeader": {
+    "unsavedChanges": "\"{{label}}\" tiene cambios sin guardar. ¿Cerrar de todos modos?"
+  },
+  "panel": {
+    "undockPanel": "Desanclar panel"
+  },
+  "windowControls": {
+    "minimize": "Minimizar",
+    "maximize": "Maximizar",
+    "close": "Cerrar"
+  },
+  "aiIndicator": {
+    "disconnectAll": "Desconectar todo",
+    "label": "Indicador de AI"
+  },
+  "tabs": {
+    "ocean": "Ocean",
+    "ai": "AI"
+  },
+  "aiConfig": {
+    "title": "Configuración de AI",
+    "requiredTitle": "Configuración de AI Requerida",
+    "requiredDescription": "Configura al menos un proveedor de AI para continuar.",
+    "manageProviders": "Administra tus proveedores de AI",
+    "description": "Configura proveedores de AI y enrutamiento de tareas.",
+    "providers": "Proveedores",
+    "taskRouting": "Enrutamiento de Tareas",
+    "testConnection": "Probar Conexión",
+    "testing": "Probando...",
+    "connectionSuccess": "¡Conexión exitosa!",
+    "connectionFailed": "Conexión fallida",
+    "apiKey": "API Key",
+    "apiKeyPlaceholder": "Ingresa la API key...",
+    "apiKeySet": "API key configurada",
+    "apiKeyNotSet": "No hay API key configurada",
+    "setKey": "Configurar Key",
+    "removeKey": "Eliminar Key",
+    "confirmRemoveKey": "¿Eliminar API key de {{provider}}?",
+    "model": "Modelo",
+    "provider": "Proveedor",
+    "noModels": "No hay modelos disponibles",
+    "ollamaEndpoint": "Endpoint de Ollama",
+    "ollamaNotRunning": "Ollama no está en ejecución",
+    "selectModel": "Seleccionar modelo...",
+    "selectProvider": "Seleccionar proveedor...",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "done": "Listo",
+    "apiKeys": "API Keys",
+    "providersConfigured": "{{count}} proveedor configurado",
+    "providersConfigured_other": "{{count}} proveedores configurados",
+    "connectOneProvider": "Conecta al menos un proveedor",
+    "apiKeyLabel": "API Key de {{name}}",
+    "getApiKey": "Obtener API Key",
+    "connected": "¡Conectado!",
+    "saveAndTest": "Guardar y Probar",
+    "taskConfiguration": "Configuración de Tareas",
+    "chooseProviderModel": "Elige proveedor y modelo para cada tarea",
+    "testOllamaConnection": "Probar conexión de Ollama",
+    "remove": "Eliminar",
+    "configure": "Configurar",
+    "noProviders": "No hay proveedores configurados"
+  },
+  "mesh": {
+    "title": "MESH",
+    "transportRunning": "Transporte: Activo (puerto {{port}})",
+    "transportStopped": "Transporte: No activo",
+    "noPeersFound": "No se encontraron otras instancias",
+    "connect": "Conectar",
+    "connecting": "Conectando...",
+    "connected": "Conectado",
+    "disconnect": "Desconectar",
+    "refresh": "Actualizar",
+    "indicatorTitle": "{{count}} conectados",
+    "indicatorTitleEmpty": "Mesh",
+    "moduleCount": "{{count}} módulos"
+  },
+  "ragIndex": {
+    "title": "Índice de Código (RAG)",
+    "description": "Administra el índice de búsqueda de código de tu proyecto",
+    "status": "Estado del Índice",
+    "notIndexed": "Sin indexar",
+    "notIndexedHint": "Indexa tu proyecto para habilitar búsqueda de código en el chat",
+    "filesAndChunks": "{{files}} archivos · {{chunks}} fragmentos",
+    "lastIndexed": "Última indexación: {{time}}",
+    "progress": "Progreso de Indexación",
+    "currentFile": "Procesando: {{file}}",
+    "lastRun": "Última Ejecución",
+    "indexed": "{{count}} indexados",
+    "unchanged": "{{count}} sin cambios",
+    "removed": "{{count}} eliminados",
+    "indexNow": "Indexar Ahora",
+    "reIndex": "Re-indexar",
+    "indexing": "Indexando...",
+    "done": "Listo",
+    "retry": "Reintentar",
+    "cancel": "Cancelar",
+    "error": "Indexación fallida"
+  },
+  "prompts": {
+    "title": "Prompts",
+    "systemPrompt": "Prompt del Sistema",
+    "editPrompt": "Editar Prompt",
+    "resetToDefault": "Restablecer a Predeterminado",
+    "confirmReset": "¿Restablecer este prompt a la versión predeterminada?",
+    "version": "v{{version}}",
+    "noPromptSelected": "Selecciona una tarea para ver su prompt",
+    "savedSuccessfully": "Prompt guardado correctamente",
+    "resetSuccessfully": "Prompt restablecido a predeterminado",
+    "tasks": {
+      "chat": "Chat",
+      "context": "Contexto",
+      "github": "GitHub",
+      "analysis": "Análisis",
+      "contextGeneration": "Generación de Contexto",
+      "prReview": "Revisión de PR"
+    },
+    "tasksLabel": "Tareas",
+    "selectTask": "Selecciona una tarea para editar prompts",
+    "usingBasePrompt": "Usando prompt base. No hay personalización para",
+    "customizeFor": "Personalizar para {{provider}}",
+    "reset": "Restablecer",
+    "save": "Guardar",
+    "versionHistory": "Historial de Versiones",
+    "versionHistoryFor": "Historial de versiones de \"{{name}}\"",
+    "noVersionHistory": "No hay historial de versiones"
+  }
+}

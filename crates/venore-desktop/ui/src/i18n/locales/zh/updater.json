@@ -1,0 +1,35 @@
+{
+  "notification": {
+    "checking": "检查中...",
+    "count": "{{count}} 个模块已过期",
+    "count_plural": "{{count}} 个模块已过期"
+  },
+  "report": {
+    "title": "可用的上下文更新",
+    "description": "检测到 {{commits}} 个新提交",
+    "commits": "{{count}} 个新提交",
+    "modules": "{{count}} 个受影响的模块",
+    "filesChanged": "{{count}} 个文件已更改",
+    "regenerate": "重新生成 {{count}} 个模块",
+    "dismiss": "忽略",
+    "selectAll": "全选",
+    "deselectAll": "取消全选"
+  },
+  "result": {
+    "title": "更新完成",
+    "regenerating": "正在重新生成上下文...",
+    "regeneratingDescription": "正在重新生成过期的 .context.md 文件",
+    "completedDescription": "上下文重新生成已完成",
+    "completed": "完成！",
+    "summary": "已重新生成 {{current}}/{{total}} 个模块",
+    "progress": "{{current}} / {{total}}",
+    "dismiss": "关闭",
+    "markSynced": "标记为已同步",
+    "noProgress": "没有可用的重新生成数据"
+  },
+  "state": {
+    "branch": "分支",
+    "interval": "检查间隔（分钟）",
+    "autoUpdate": "启用自动更新"
+  }
+}

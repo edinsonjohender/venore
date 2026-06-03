@@ -1,0 +1,66 @@
+{
+  "launcher": {
+    "tagline": "自主工程的上下文层",
+    "newCodebase": "新建代码库",
+    "newCodebaseDescription": "创建或分析代码库",
+    "newKnowledge": "新建知识",
+    "newKnowledgeDescription": "AI 驱动的功能研究",
+    "newKnowledgeModalDescription": "创建一个知识岛屿，使用 AI 驱动的调查来研究功能。",
+    "openExisting": "打开已有代码库...",
+    "dragDropHint": "或拖放项目文件夹",
+    "selectAI": "选择 AI",
+    "version": "v2.0.0 Alpha",
+    "recentProjects": "最近的项目",
+    "clearAllRecent": "清除所有最近项目",
+    "removeFromRecent": "从最近项目中移除",
+    "selectProjectFolder": "选择项目文件夹",
+    "unnamed": "未命名",
+    "cloneFromGithub": "从 GitHub 克隆",
+    "cloneFromGithubDescription": "克隆仓库并设置上下文",
+    "openNotVenore": "此文件夹还不是 Venore 项目。",
+    "openRunWizardHint": "运行入门向导以进行设置。",
+    "openRunWizardAction": "运行向导",
+    "openFailed": "无法打开项目",
+    "openRestoredPrefix": "已恢复",
+    "openEmpty": "项目已打开",
+    "openModulesPart": "{{n}} 个模块",
+    "openLayersPart": "{{n}} 个层级",
+    "openMemoryPart": "项目记忆",
+    "openStalePart": "{{n}} 个已过期",
+    "openRecentFailed": "无法打开 {{name}}"
+  },
+  "boot": {
+    "phases": {
+      "booting": {
+        "title": "正在启动 Venore",
+        "description": "正在初始化应用程序..."
+      },
+      "checking": {
+        "title": "正在加载服务",
+        "description": "正在验证系统组件..."
+      },
+      "ready": {
+        "title": "就绪",
+        "description": "应用程序初始化成功"
+      },
+      "error": {
+        "title": "启动失败",
+        "description": "初始化过程中发生错误"
+      }
+    },
+    "checks": {
+      "backend": "后端",
+      "database": "数据库",
+      "llmGateway": "LLM 网关",
+      "aiConfiguration": "AI 配置"
+    },
+    "retry": "重试",
+    "loadedIn": "加载耗时 {{duration}}ms",
+    "errors": {
+      "backendInitFailed": "后端初始化失败",
+      "databaseCheckFailed": "数据库检查失败",
+      "llmGatewayCheckFailed": "LLM 网关检查失败",
+      "aiConfigLoadFailed": "AI 配置加载失败"
+    }
+  }
+}

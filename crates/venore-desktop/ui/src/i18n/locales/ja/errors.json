@@ -1,0 +1,74 @@
+{
+  "LLM_NO_API_KEY": {
+    "message": "API キーが設定されていません。",
+    "suggestion": "設定画面で API キーを追加してください。"
+  },
+  "LLM_RATE_LIMIT": {
+    "message": "レート制限に達しました。",
+    "suggestion": "しばらく待ってから再試行してください。"
+  },
+  "LLM_CONTEXT_TOO_LONG": {
+    "message": "このモデルには会話が長すぎます。",
+    "suggestion": "新しいチャットを開始するか、コンテキストを減らしてください。"
+  },
+  "LLM_PROVIDER_ERROR": {
+    "message": "AI プロバイダーがエラーを返しました。",
+    "suggestion": "接続を確認するか、別のプロバイダーを試してください。"
+  },
+  "LLM_STREAM_ERROR": {
+    "message": "AI の応答が中断されました。",
+    "suggestion": "メッセージを再度送信してみてください。"
+  },
+  "LLM_INVALID_PROVIDER": {
+    "message": "無効な AI プロバイダーが選択されています。",
+    "suggestion": "AI 設定でプロバイダーの設定を確認してください。"
+  },
+  "LLM_INVALID_REQUEST": {
+    "message": "AI プロバイダーへのリクエストが無効です。",
+    "suggestion": "メッセージの表現を変えてみてください。"
+  },
+  "LLM_INVALID_RESPONSE": {
+    "message": "AI プロバイダーから無効な応答を受信しました。",
+    "suggestion": "再試行するか、別のプロバイダーに切り替えてください。"
+  },
+  "LLM_MODEL_NOT_AVAILABLE": {
+    "message": "このプロバイダーではモデルが利用できません。",
+    "suggestion": "設定 > AI設定で別のモデルを選択してください。"
+  },
+  "GITHUB_AUTH_REQUIRED": {
+    "message": "GitHub 認証が必要です。",
+    "suggestion": "設定で GitHub アカウントを接続してください。"
+  },
+  "GITHUB_RATE_LIMITED": {
+    "message": "GitHub のレート制限に達しました。",
+    "suggestion": "数分待ってから再試行してください。"
+  },
+  "GITHUB_REPO_NOT_LINKED": {
+    "message": "GitHub リポジトリがリンクされていません。",
+    "suggestion": "プロジェクト設定でリポジトリをリンクしてください。"
+  },
+  "TERMINAL_ERROR": {
+    "message": "Terminal エラーが発生しました。",
+    "suggestion": "Terminal を再起動してみてください。"
+  },
+  "TERMINAL_SPAWN_FAILED": {
+    "message": "Terminal の起動に失敗しました。",
+    "suggestion": "システムのシェル設定を確認してください。"
+  },
+  "DATABASE_LOCKED": {
+    "message": "データベースが一時的にビジー状態です。",
+    "suggestion": "しばらく待ってから再試行してください。"
+  },
+  "DATABASE_NOT_INITIALIZED": {
+    "message": "データベースの準備がまだ完了していません。",
+    "suggestion": "Venore の起動が完了するまでお待ちください。"
+  },
+  "TIMEOUT": {
+    "message": "操作がタイムアウトしました。",
+    "suggestion": "再試行してください。"
+  },
+  "NOT_FOUND": {
+    "message": "リソースが見つかりません。",
+    "suggestion": "Venore がまだ起動中の可能性があります。しばらく待ってから再試行してください。"
+  }
+}

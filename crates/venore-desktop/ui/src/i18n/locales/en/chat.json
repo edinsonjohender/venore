@@ -1,0 +1,90 @@
+{
+  "emptyState": {
+    "title": "Start a conversation",
+    "description": "Ask questions about your project"
+  },
+  "input": {
+    "placeholder": "Ask something...",
+    "placeholderStreaming": "Waiting for response...",
+    "sendTitle": "Send message",
+    "stopTitle": "Stop generation",
+    "addAttachment": "Add attachment",
+    "attachFile": "Attach file",
+    "addContext": "Add context",
+    "removeAttachment": "Remove",
+    "dragDropHint": "Drop files here",
+    "fileTooLarge": "File too large (max 20MB)",
+    "maxAttachments": "Maximum 10 files",
+    "pasteImage": "Pasted image",
+    "model": "Model",
+    "unsupportedFile": "Unsupported file type",
+    "newChat": "New Chat",
+    "sendFailed": "Failed to send message"
+  },
+  "headerActions": {
+    "general": "General",
+    "generalChat": "General chat",
+    "newChat": "New chat",
+    "history": "Chat history",
+    "clearChat": "Clear messages",
+    "deleteChat": "Delete chat",
+    "closeChat": "Close chat",
+    "popOut": "Open in new window"
+  },
+  "message": {
+    "ai": "ai"
+  },
+  "sessionHistory": {
+    "loading": "Loading...",
+    "noSessions": "No conversations yet",
+    "deleteSession": "Delete",
+    "renameSession": "Rename"
+  },
+  "toolCall": {
+    "running": "Running",
+    "completed": "Done",
+    "failed": "Error",
+    "denied": "Denied",
+    "pending": "Pending",
+    "output": "Output"
+  },
+  "contextSelector": {
+    "title": "Add context",
+    "noProject": "No project path set. Open a project first.",
+    "scanning": "Scanning modules...",
+    "noModules": "No .context.md files found"
+  },
+  "toolConfirm": {
+    "title": "AI wants to use a tool",
+    "allowOnce": "Allow once",
+    "allowSession": "Allow for session",
+    "deny": "Deny"
+  },
+  "askUser": {
+    "title": "Agent needs your input",
+    "typeResponse": "Type a response..."
+  },
+  "taskList": {
+    "tasks": "Tasks"
+  },
+  "planView": {
+    "title": "Plan for approval",
+    "approve": "Approve",
+    "reject": "Reject"
+  },
+  "subAgent": {
+    "agentLabel": "{{type}} agent",
+    "research": "Research",
+    "code": "Code",
+    "test": "Test"
+  },
+  "execution": {
+    "title": "Execution"
+  },
+  "revert": {
+    "button": "Revert to here",
+    "confirmMessage": "This will undo all file changes after this point. This cannot be undone.",
+    "confirm": "Revert",
+    "cancel": "Cancel"
+  }
+}

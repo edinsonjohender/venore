@@ -1,0 +1,142 @@
+[
+  {
+    "name": "k01-explicit-write",
+    "project_kind": "knowledge",
+    "user_message": "agrega una sección llamada 'Decisiones' al nodo principal con el texto: 'Usar OpenCV con HSV.'",
+    "expected_tools_any_of": ["propose_logbook_write", "list_logbooks"],
+    "notes": "Baseline explícito. Caso fácil."
+  },
+  {
+    "name": "k02-anota-corto",
+    "project_kind": "knowledge",
+    "user_message": "anota: para detectar el objeto vamos a usar HSV con OpenCV.",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "'Anota' sin más detalles. Solo hay 1 lighthouse → debería escribir directo."
+  },
+  {
+    "name": "k03-guarda-mis-notas",
+    "project_kind": "knowledge",
+    "user_message": "guarda esto en mis notas: la cámara debería estar a 1.5m sobre la mesa.",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "'Guarda en mis notas' = bitácora. Single lighthouse → auto-pick."
+  },
+  {
+    "name": "k04-toma-nota",
+    "project_kind": "knowledge",
+    "user_message": "toma nota de que el proyector debe estar calibrado antes del primer frame.",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "Variante de fraseo: 'toma nota de'."
+  },
+  {
+    "name": "k05-recordame",
+    "project_kind": "knowledge",
+    "user_message": "recuérdame que tenemos que comprar una cámara con buen rango dinámico.",
+    "expected_tools_any_of": ["propose_logbook_write", "task_create"],
+    "notes": "Ambiguo: nota o tarea. Cualquiera de las dos es razonable."
+  },
+  {
+    "name": "k06-list-then-write",
+    "project_kind": "knowledge",
+    "user_message": "qué bitácoras tengo? agrega una sección de TODOs en el lighthouse.",
+    "expected_tools_any_of": ["list_logbooks", "propose_logbook_write"],
+    "notes": "Doble intención. Multi-tool en un turno."
+  },
+  {
+    "name": "k07-search-only",
+    "project_kind": "knowledge",
+    "user_message": "tengo algo escrito sobre OpenCV?",
+    "expected_tools_any_of": ["search_logbook"],
+    "notes": "Búsqueda. NO escribir."
+  },
+  {
+    "name": "k08-list-only",
+    "project_kind": "knowledge",
+    "user_message": "qué nodos de conocimiento tenemos?",
+    "expected_tools_any_of": ["list_logbooks"],
+    "notes": "Listar. NO escribir."
+  },
+  {
+    "name": "k09-greet",
+    "project_kind": "knowledge",
+    "user_message": "hola, ¿cómo estás?",
+    "expected_tools_any_of": [],
+    "notes": "Pregunta social. NO debería llamar tool."
+  },
+  {
+    "name": "k10-vague-help",
+    "project_kind": "knowledge",
+    "user_message": "ayúdame con este proyecto",
+    "expected_tools_any_of": ["list_logbooks", "ask_user"],
+    "notes": "Vago. Debería listar bitácoras o preguntar — NO ofrecer servicios de programador."
+  },
+  {
+    "name": "k11-research",
+    "project_kind": "knowledge",
+    "user_message": "investiga qué librerías de tracking de objetos existen en Python además de OpenCV.",
+    "expected_tools_any_of": ["web_search", "plan_hexagons", "task_create"],
+    "notes": "Investigación. Web search o knowledge tools."
+  },
+  {
+    "name": "k12-file-creation-rejected",
+    "project_kind": "knowledge",
+    "user_message": "crea un main.py con el bucle del juego",
+    "expected_tools_any_of": ["ask_user", "propose_logbook_write"],
+    "notes": "Pide archivo en proyecto Knowledge. No tiene write_file. Debería redirigir a bitácora o pedir contexto."
+  },
+  {
+    "name": "k13-update-section",
+    "project_kind": "knowledge",
+    "user_message": "actualiza la sección de decisiones: ahora vamos a usar Pygame en vez de Pyglet.",
+    "expected_tools_any_of": ["read_logbook", "propose_logbook_write", "list_logbooks"],
+    "notes": "Edit de sección. Ideal: read primero, luego propose con edit_section_id."
+  },
+  {
+    "name": "k14-multiline-write",
+    "project_kind": "knowledge",
+    "user_message": "anota lo siguiente como sección 'Hardware':\n- Cámara Logitech C920\n- Proyector cualquiera de 1080p\n- Mesa blanca mate",
+    "expected_tools_any_of": ["propose_logbook_write"],
+    "notes": "Contenido multilínea. Slam-dunk para propose_logbook_write."
+  },
+  {
+    "name": "k15-write-then-read",
+    "project_kind": "knowledge",
+    "user_message": "agrega una nota llamada 'Riesgos' y dime después qué le puse",
+    "expected_tools_any_of": ["propose_logbook_write", "read_logbook"],
+    "notes": "Escribir + leer. Multi-tool."
+  },
+  {
+    "name": "k16-structure-faro",
+    "project_kind": "knowledge",
+    "user_message": "necesito un nuevo proyecto: 'Sistema de reservas online' con tres sub-temas: backend, frontend, base de datos",
+    "expected_tools_any_of": ["create_lighthouse", "create_knowledge_node"],
+    "notes": "Estructura completa. Debería crear 1 faro + 3 nodos. NO debería usar propose_logbook_write."
+  },
+  {
+    "name": "k17-add-node-to-existing",
+    "project_kind": "knowledge",
+    "user_message": "agrega un nodo nuevo llamado 'Pruebas de integración' al faro principal",
+    "expected_tools_any_of": ["create_knowledge_node"],
+    "notes": "Solo añadir un nodo a una isla existente."
+  },
+  {
+    "name": "k18-connect-nodes",
+    "project_kind": "knowledge",
+    "user_message": "conecta el nodo de 'visión por computadora' con el de 'motor de juego', porque la visión alimenta al motor",
+    "expected_tools_any_of": ["create_connection", "list_logbooks"],
+    "notes": "Crear conexión. Probablemente lista primero para obtener IDs."
+  },
+  {
+    "name": "k19-promote-node",
+    "project_kind": "knowledge",
+    "user_message": "el nodo de 'autenticación' creció mucho, conviértelo en faro",
+    "expected_tools_any_of": ["promote_to_lighthouse", "list_logbooks"],
+    "notes": "Promover nodo. Lista primero para conseguir el id."
+  },
+  {
+    "name": "k20-rename-anti-pattern",
+    "project_kind": "knowledge",
+    "user_message": "anota una sección llamada 'Nodo: Performance' con: medir latencia y throughput",
+    "expected_tools_any_of": ["create_knowledge_node", "ask_user"],
+    "notes": "El usuario pide explícitamente sección llamada 'Nodo: X' — anti-pattern. La AI debería corregir y crear un nodo real, o preguntar."
+  }
+]

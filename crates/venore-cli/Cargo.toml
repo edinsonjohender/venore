@@ -1,0 +1,42 @@
+[package]
+name = "venore-cli"
+version = "0.1.0"
+edition = "2021"
+authors = ["Edinson Johender <hi@skalar.app>"]
+license = "AGPL-3.0-or-later"
+description = "CLI tool for testing Venore Context Generator pipeline"
+
+[[bin]]
+name = "venore-cli"
+path = "src/main.rs"
+
+[[bin]]
+name = "venore-eval"
+path = "src/bin/eval.rs"
+
+[dependencies]
+# Workspace dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+futures = { workspace = true }
+
+# Venore core
+venore-core = { path = "../venore-core" }
+
+# CLI specific
+clap = { version = "4.5", features = ["derive"] }
+colored = "2.1"
+
+# Interactive prompts (wizard)
+inquire = "0.7"
+console = "0.15"
+indicatif = "0.17"
+chrono = "0.4"
+dotenvy = "0.15"
+dirs = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3.8"

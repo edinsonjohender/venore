@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" style="background-color: #09090b;">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venore - Visual Explorer</title>
+    <style>
+      /* Reset and base styles matching Venore theme */
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #09090b;
+        color: #fafafa;
+        font-family: 'Geist Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      /* Splash screen - matches BootScreen exactly */
+      #splash-screen {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #09090b;
+        z-index: 9999;
+      }
+
+      .splash-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        max-width: 28rem;
+        padding: 0 16px;
+      }
+
+      /* Spinner - matches BootScreen spinner */
+      .spinner-wrapper {
+        position: relative;
+      }
+
+      .spinner {
+        width: 64px;
+        height: 64px;
+        border: 4px solid #18181b;
+        border-top-color: #01e8a2;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+
+      /* Title & description - matches BootScreen */
+      .splash-title-section {
+        text-align: center;
+      }
+
+      .splash-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #fafafa;
+        margin: 0 0 4px 0;
+      }
+
+      .splash-subtitle {
+        font-size: 14px;
+        color: #a1a1aa;
+        margin: 0;
+      }
+
+      /* Checks list - matches BootScreen */
+      .checks-container {
+        width: 100%;
+        padding: 16px;
+        background-color: rgba(12, 12, 14, 0.5);
+        border: 1px solid #27272a;
+        border-radius: 8px;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 6px 0;
+      }
+
+      .check-icon {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #52525b;
+        flex-shrink: 0;
+      }
+
+      .check-text {
+        font-size: 14px;
+        color: #a1a1aa;
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Splash screen - exact replica of BootScreen design -->
+    <div id="splash-screen">
+      <div class="splash-container">
+        <!-- Spinner (matches BootScreen) -->
+        <div class="spinner-wrapper">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- Title & Description (matches BootScreen) -->
+        <div class="splash-title-section">
+          <h1 class="splash-title">Starting Venore</h1>
+          <p class="splash-subtitle">Initializing application...</p>
+        </div>
+
+        <!-- Checks list (matches BootScreen) -->
+        <div class="checks-container">
+          <div class="check-item">
+            <div class="check-icon"></div>
+            <span class="check-text">Backend</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"></div>
+            <span class="check-text">Database</span>
+          </div>
+          <div class="check-item">
+            <div class="check-icon"></div>
+            <span class="check-text">LLM Gateway</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- React will mount here and seamlessly replace splash -->
+    <div id="root" style="background-color: #09090b;"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

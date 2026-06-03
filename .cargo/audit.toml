@@ -1,0 +1,20 @@
+# cargo-audit configuration (https://github.com/rustsec/rustsec/tree/main/cargo-audit)
+#
+# We ignore exactly one advisory, with justification. Unmaintained-crate
+# warnings (e.g. the gtk-rs GTK3 bindings pulled in transitively by Tauri's
+# Linux webkit stack) are intentionally left VISIBLE — they are informational
+# and do not fail `cargo audit`, and hiding them would be dishonest.
+
+[advisories]
+ignore = [
+    # rsa "Marvin Attack" timing side-channel.
+    #
+    # `rsa` is NOT compiled into any Venore binary. It is a dead entry in
+    # Cargo.lock pulled only through sqlx's OPTIONAL `sqlx-mysql` driver; we
+    # build sqlx with the `sqlite` feature only, so the mysql driver — and
+    # therefore `rsa` — is never built (`cargo tree -i rsa --target all`
+    # returns nothing). sqlx pins its optional drivers in the lockfile even
+    # when their feature is off, so the advisory cannot be resolved by a
+    # version bump on our side. Re-evaluate if we ever enable sqlx `mysql`.
+    "RUSTSEC-2023-0071",
+]

@@ -1,0 +1,66 @@
+{
+  "launcher": {
+    "tagline": "The Context Layer for Autonomous Engineering",
+    "newCodebase": "New Codebase",
+    "newCodebaseDescription": "Create or analyze a codebase",
+    "newKnowledge": "New Knowledge",
+    "newKnowledgeDescription": "AI-powered feature research",
+    "newKnowledgeModalDescription": "Create a knowledge island to research a feature with AI-powered investigation.",
+    "openExisting": "Open Existing Codebase...",
+    "dragDropHint": "or drag & drop a project folder",
+    "selectAI": "Select AI",
+    "version": "v2.0.0 Alpha",
+    "recentProjects": "Recent Projects",
+    "clearAllRecent": "Clear all recent projects",
+    "removeFromRecent": "Remove from recent",
+    "selectProjectFolder": "Select Project Folder",
+    "unnamed": "Unnamed",
+    "cloneFromGithub": "Clone from GitHub",
+    "cloneFromGithubDescription": "Clone a repository and set up context",
+    "openNotVenore": "This folder is not a Venore project yet.",
+    "openRunWizardHint": "Run the onboarding wizard to set it up.",
+    "openRunWizardAction": "Run wizard",
+    "openFailed": "Failed to open project",
+    "openRestoredPrefix": "Restored",
+    "openEmpty": "Project opened",
+    "openModulesPart": "{{n}} modules",
+    "openLayersPart": "{{n}} layers",
+    "openMemoryPart": "project memory",
+    "openStalePart": "{{n}} stale",
+    "openRecentFailed": "Cannot open {{name}}"
+  },
+  "boot": {
+    "phases": {
+      "booting": {
+        "title": "Starting Venore",
+        "description": "Initializing application..."
+      },
+      "checking": {
+        "title": "Loading Services",
+        "description": "Verifying system components..."
+      },
+      "ready": {
+        "title": "Ready",
+        "description": "Application initialized successfully"
+      },
+      "error": {
+        "title": "Startup Failed",
+        "description": "An error occurred during initialization"
+      }
+    },
+    "checks": {
+      "backend": "Backend",
+      "database": "Database",
+      "llmGateway": "LLM Gateway",
+      "aiConfiguration": "AI Configuration"
+    },
+    "retry": "Retry",
+    "loadedIn": "Loaded in {{duration}}ms",
+    "errors": {
+      "backendInitFailed": "Backend initialization failed",
+      "databaseCheckFailed": "Database check failed",
+      "llmGatewayCheckFailed": "LLM Gateway check failed",
+      "aiConfigLoadFailed": "AI config load failed"
+    }
+  }
+}

@@ -1,0 +1,136 @@
+name: CI
+
+# The repo's automatic gate: every push and PR to main/dev gets compiled and
+# tested on a clean machine, so broken contributions are caught before review.
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+# A newer push to the same branch/PR cancels the in-flight run — saves CI minutes.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Frontend: type-check and build the React/Vite UI. `pnpm build` runs `tsc`
+  # then `vite build`, so a type error or a broken build fails the job. The
+  # built `dist/` is published as an artifact because the Rust job needs it:
+  # `tauri::generate_context!` embeds it at compile time.
+  # ---------------------------------------------------------------------------
+  frontend:
+    name: Frontend (typecheck · build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: crates/venore-desktop/ui
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.0
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: crates/venore-desktop/ui/pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type-check
+        run: pnpm typecheck
+
+      - name: Build UI
+        run: pnpm build
+
+      - name: Upload UI dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-dist
+          path: crates/venore-desktop/ui/dist
+          if-no-files-found: error
+          retention-days: 1
+
+  # ---------------------------------------------------------------------------
+  # Rust: build + test the whole workspace, plus an informational clippy pass.
+  # venore-desktop links Tauri, which (a) needs GTK/WebKit system libs on Linux
+  # and (b) embeds the frontend `dist/` via `generate_context!` at compile time
+  # — so this job depends on `frontend` and restores its dist artifact first.
+  # ---------------------------------------------------------------------------
+  rust:
+    name: Rust (build · test · clippy)
+    runs-on: ubuntu-latest
+    needs: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Tauri system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf \
+            libxdo-dev \
+            libssl-dev \
+            build-essential
+
+      - name: Install Rust toolchain (stable)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Cache cargo build
+        uses: Swatinem/rust-cache@v2
+
+      # Restore the frontend build so `tauri::generate_context!` finds ./ui/dist.
+      - name: Download UI dist
+        uses: actions/download-artifact@v4
+        with:
+          name: ui-dist
+          path: crates/venore-desktop/ui/dist
+
+      - name: Build workspace
+        run: cargo build --workspace --locked
+
+      - name: Test workspace
+        run: cargo test --workspace --locked
+
+      # Non-blocking for now: the codebase has known style-level clippy lints.
+      # Once those are cleared, drop `|| true` (or add `-- -D warnings`) to make
+      # clippy a hard gate.
+      - name: Clippy (informational)
+        run: cargo clippy --workspace --all-targets --locked || true
+
+  # ---------------------------------------------------------------------------
+  # Security audit: scan Cargo.lock against the RustSec advisory DB. Fails on
+  # known vulnerabilities; documented exceptions live in .cargo/audit.toml.
+  # Independent of the build (reads the lockfile only), so it runs in parallel.
+  # ---------------------------------------------------------------------------
+  audit:
+    name: Security audit (cargo audit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo-audit
+        uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-audit
+
+      - name: Run cargo audit
+        run: cargo audit

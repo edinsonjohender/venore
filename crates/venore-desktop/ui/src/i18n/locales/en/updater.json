@@ -1,0 +1,35 @@
+{
+  "notification": {
+    "checking": "Checking...",
+    "count": "{{count}} module outdated",
+    "count_plural": "{{count}} modules outdated"
+  },
+  "report": {
+    "title": "Context Update Available",
+    "description": "{{commits}} new commit(s) detected",
+    "commits": "{{count}} new commit(s)",
+    "modules": "{{count}} affected module(s)",
+    "filesChanged": "{{count}} file(s) changed",
+    "regenerate": "Regenerate {{count}} module(s)",
+    "dismiss": "Dismiss",
+    "selectAll": "Select all",
+    "deselectAll": "Deselect all"
+  },
+  "result": {
+    "title": "Update Complete",
+    "regenerating": "Regenerating Contexts...",
+    "regeneratingDescription": "Regenerating stale .context.md files",
+    "completedDescription": "Context regeneration finished",
+    "completed": "Done!",
+    "summary": "{{current}}/{{total}} modules regenerated",
+    "progress": "{{current}} of {{total}}",
+    "dismiss": "Close",
+    "markSynced": "Mark as Synced",
+    "noProgress": "No regeneration data available"
+  },
+  "state": {
+    "branch": "Branch",
+    "interval": "Check interval (minutes)",
+    "autoUpdate": "Auto-update enabled"
+  }
+}

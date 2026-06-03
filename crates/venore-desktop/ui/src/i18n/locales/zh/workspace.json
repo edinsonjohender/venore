@@ -1,0 +1,134 @@
+{
+  "statusBar": {
+    "toggleTerminal": "切换 Terminal (Ctrl+`)",
+    "terminal": "Terminal"
+  },
+  "activityBar": {
+    "backToLauncher": "返回启动页",
+    "terminal": "Terminal",
+    "ai": "AI"
+  },
+  "terminalTabBar": {
+    "terminal": "Terminal",
+    "newTerminal": "新建 Terminal",
+    "closeTerminalPanel": "关闭 Terminal 面板",
+    "copy": "复制",
+    "paste": "粘贴",
+    "clear": "清屏"
+  },
+  "toolbar": {
+    "navigate": "导航",
+    "moveNode": "移动节点",
+    "move": "移动",
+    "canvasMode": "画布模式"
+  },
+  "floatingPanel": {
+    "dockPanel": "停靠面板",
+    "closePanel": "关闭面板"
+  },
+  "canvasHeader": {
+    "unsavedChanges": "\"{{label}}\" 有未保存的更改。确定要关闭吗？"
+  },
+  "panel": {
+    "undockPanel": "取消停靠面板"
+  },
+  "windowControls": {
+    "minimize": "最小化",
+    "maximize": "最大化",
+    "close": "关闭"
+  },
+  "aiIndicator": {
+    "disconnectAll": "断开所有连接",
+    "label": "AI 指示器"
+  },
+  "tabs": {
+    "ocean": "Ocean",
+    "ai": "AI"
+  },
+  "aiConfig": {
+    "title": "AI 配置",
+    "requiredTitle": "需要设置 AI",
+    "requiredDescription": "请至少配置一个 AI 提供商以继续。",
+    "manageProviders": "管理您的 AI 提供商",
+    "description": "配置 AI 提供商和任务路由。",
+    "providers": "提供商",
+    "taskRouting": "任务路由",
+    "testConnection": "测试连接",
+    "testing": "测试中...",
+    "connectionSuccess": "连接成功！",
+    "connectionFailed": "连接失败",
+    "apiKey": "API 密钥",
+    "apiKeyPlaceholder": "输入 API 密钥...",
+    "apiKeySet": "API 密钥已设置",
+    "apiKeyNotSet": "未配置 API 密钥",
+    "setKey": "设置密钥",
+    "removeKey": "移除密钥",
+    "confirmRemoveKey": "确定移除 {{provider}} 的 API 密钥？",
+    "model": "模型",
+    "provider": "提供商",
+    "noModels": "没有可用的模型",
+    "ollamaEndpoint": "Ollama 端点",
+    "ollamaNotRunning": "Ollama 未运行",
+    "selectModel": "选择模型...",
+    "selectProvider": "选择提供商...",
+    "cancel": "取消",
+    "continue": "继续",
+    "done": "完成",
+    "apiKeys": "API 密钥",
+    "providersConfigured": "已配置 {{count}} 个提供商",
+    "providersConfigured_other": "已配置 {{count}} 个提供商",
+    "connectOneProvider": "请至少连接一个提供商",
+    "apiKeyLabel": "{{name}} API 密钥",
+    "getApiKey": "获取 API 密钥",
+    "connected": "已连接！",
+    "saveAndTest": "保存并测试",
+    "taskConfiguration": "任务配置",
+    "chooseProviderModel": "为每个任务选择提供商和模型",
+    "testOllamaConnection": "测试 Ollama 连接",
+    "remove": "移除",
+    "configure": "配置",
+    "noProviders": "未配置提供商"
+  },
+  "mesh": {
+    "title": "MESH",
+    "transportRunning": "传输: 运行中 (端口 {{port}})",
+    "transportStopped": "传输: 未运行",
+    "noPeersFound": "未发现其他实例",
+    "connect": "连接",
+    "connecting": "连接中...",
+    "connected": "已连接",
+    "disconnect": "断开",
+    "refresh": "刷新",
+    "indicatorTitle": "{{count}} 个已连接",
+    "indicatorTitleEmpty": "Mesh",
+    "moduleCount": "{{count}} 个模块"
+  },
+  "prompts": {
+    "title": "提示词",
+    "systemPrompt": "系统提示词",
+    "editPrompt": "编辑提示词",
+    "resetToDefault": "重置为默认",
+    "confirmReset": "确定将此提示词重置为默认版本？",
+    "version": "v{{version}}",
+    "noPromptSelected": "选择一个任务以查看其提示词",
+    "savedSuccessfully": "提示词保存成功",
+    "resetSuccessfully": "提示词已重置为默认",
+    "tasks": {
+      "chat": "聊天",
+      "context": "上下文",
+      "github": "GitHub",
+      "analysis": "分析",
+      "contextGeneration": "上下文生成",
+      "prReview": "PR 审查"
+    },
+    "tasksLabel": "任务",
+    "selectTask": "选择一个任务以编辑提示词",
+    "usingBasePrompt": "使用基础提示词。以下内容无自定义覆盖",
+    "customizeFor": "为 {{provider}} 自定义",
+    "reset": "重置",
+    "save": "保存",
+    "versionHistory": "版本历史",
+    "versionHistoryFor": "\"{{name}}\" 的版本历史",
+    "noVersionHistory": "暂无版本历史"
+  }
+}

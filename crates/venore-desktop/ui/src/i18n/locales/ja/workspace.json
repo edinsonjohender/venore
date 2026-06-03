@@ -1,0 +1,134 @@
+{
+  "statusBar": {
+    "toggleTerminal": "Terminal の切り替え (Ctrl+`)",
+    "terminal": "Terminal"
+  },
+  "activityBar": {
+    "backToLauncher": "ランチャーに戻る",
+    "terminal": "Terminal",
+    "ai": "AI"
+  },
+  "terminalTabBar": {
+    "terminal": "Terminal",
+    "newTerminal": "新規 Terminal",
+    "closeTerminalPanel": "Terminal パネルを閉じる",
+    "copy": "コピー",
+    "paste": "貼り付け",
+    "clear": "クリア"
+  },
+  "toolbar": {
+    "navigate": "ナビゲート",
+    "moveNode": "ノードを移動",
+    "move": "移動",
+    "canvasMode": "キャンバスモード"
+  },
+  "floatingPanel": {
+    "dockPanel": "パネルをドッキング",
+    "closePanel": "パネルを閉じる"
+  },
+  "canvasHeader": {
+    "unsavedChanges": "「{{label}}」に未保存の変更があります。閉じますか？"
+  },
+  "panel": {
+    "undockPanel": "パネルのドッキングを解除"
+  },
+  "windowControls": {
+    "minimize": "最小化",
+    "maximize": "最大化",
+    "close": "閉じる"
+  },
+  "aiIndicator": {
+    "disconnectAll": "すべて切断",
+    "label": "AI インジケーター"
+  },
+  "tabs": {
+    "ocean": "Ocean",
+    "ai": "AI"
+  },
+  "aiConfig": {
+    "title": "AI 設定",
+    "requiredTitle": "AI セットアップが必要です",
+    "requiredDescription": "続行するには、少なくとも1つの AI プロバイダーを設定してください。",
+    "manageProviders": "AI プロバイダーを管理",
+    "description": "AI プロバイダーとタスクルーティングを設定します。",
+    "providers": "プロバイダー",
+    "taskRouting": "タスクルーティング",
+    "testConnection": "接続テスト",
+    "testing": "テスト中...",
+    "connectionSuccess": "接続に成功しました！",
+    "connectionFailed": "接続に失敗しました",
+    "apiKey": "API キー",
+    "apiKeyPlaceholder": "API キーを入力...",
+    "apiKeySet": "API キーが設定されています",
+    "apiKeyNotSet": "API キーが未設定です",
+    "setKey": "キーを設定",
+    "removeKey": "キーを削除",
+    "confirmRemoveKey": "{{provider}} の API キーを削除しますか？",
+    "model": "モデル",
+    "provider": "プロバイダー",
+    "noModels": "利用可能なモデルがありません",
+    "ollamaEndpoint": "Ollama エンドポイント",
+    "ollamaNotRunning": "Ollama が実行されていません",
+    "selectModel": "モデルを選択...",
+    "selectProvider": "プロバイダーを選択...",
+    "cancel": "キャンセル",
+    "continue": "続行",
+    "done": "完了",
+    "apiKeys": "API キー",
+    "providersConfigured": "{{count}}個のプロバイダーが設定済み",
+    "providersConfigured_other": "{{count}}個のプロバイダーが設定済み",
+    "connectOneProvider": "少なくとも1つのプロバイダーを接続してください",
+    "apiKeyLabel": "{{name}} API キー",
+    "getApiKey": "API キーを取得",
+    "connected": "接続済み！",
+    "saveAndTest": "保存してテスト",
+    "taskConfiguration": "タスク設定",
+    "chooseProviderModel": "各タスクのプロバイダーとモデルを選択",
+    "testOllamaConnection": "Ollama 接続をテスト",
+    "remove": "削除",
+    "configure": "設定",
+    "noProviders": "プロバイダーが設定されていません"
+  },
+  "mesh": {
+    "title": "MESH",
+    "transportRunning": "トランスポート: 実行中 (ポート {{port}})",
+    "transportStopped": "トランスポート: 停止中",
+    "noPeersFound": "他のインスタンスが見つかりません",
+    "connect": "接続",
+    "connecting": "接続中...",
+    "connected": "接続済み",
+    "disconnect": "切断",
+    "refresh": "更新",
+    "indicatorTitle": "{{count}} 接続中",
+    "indicatorTitleEmpty": "Mesh",
+    "moduleCount": "{{count}} モジュール"
+  },
+  "prompts": {
+    "title": "プロンプト",
+    "systemPrompt": "システムプロンプト",
+    "editPrompt": "プロンプトを編集",
+    "resetToDefault": "デフォルトに戻す",
+    "confirmReset": "このプロンプトをデフォルトに戻しますか？",
+    "version": "v{{version}}",
+    "noPromptSelected": "タスクを選択してプロンプトを表示",
+    "savedSuccessfully": "プロンプトを保存しました",
+    "resetSuccessfully": "プロンプトをデフォルトに戻しました",
+    "tasks": {
+      "chat": "チャット",
+      "context": "コンテキスト",
+      "github": "GitHub",
+      "analysis": "分析",
+      "contextGeneration": "コンテキスト生成",
+      "prReview": "PR レビュー"
+    },
+    "tasksLabel": "タスク",
+    "selectTask": "タスクを選択してプロンプトを編集",
+    "usingBasePrompt": "ベースプロンプトを使用中。カスタムオーバーライドはありません：",
+    "customizeFor": "{{provider}} 用にカスタマイズ",
+    "reset": "リセット",
+    "save": "保存",
+    "versionHistory": "バージョン履歴",
+    "versionHistoryFor": "「{{name}}」のバージョン履歴",
+    "noVersionHistory": "バージョン履歴がありません"
+  }
+}

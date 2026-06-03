@@ -1,0 +1,110 @@
+{
+  "panel": {
+    "title": "项目",
+    "noProject": "未加载项目",
+    "modulesCount": "{{count}} 个模块",
+    "connectionsCount": "{{count}} 个连接",
+    "freshCount": "{{count}} 个最新",
+    "staleCount": "{{count}} 个过期",
+    "missingCount": "{{count}} 个缺失",
+    "loading": "加载中...",
+    "noAnalysis": "暂无分析",
+    "openInExplorer": "在资源管理器中打开",
+    "reAnalyze": "重新分析",
+    "analyzing": "分析中...",
+    "lastAnalyzed": "上次分析时间",
+    "runWizard": "运行向导",
+    "resnapshotTooltip": "根据当前代码刷新 .venore/ 快照",
+    "resnapshotSuccess": "快照已刷新",
+    "resnapshotFailed": "快照刷新失败",
+    "resnapshotParts": {
+      "modules": "{{n}} 个模块",
+      "layers": "{{n}} 个层级",
+      "hashes": "{{n}} 个哈希"
+    }
+  },
+  "tabs": {
+    "context": "上下文",
+    "files": "文件"
+  },
+  "context": {
+    "title": "上下文文件",
+    "fresh": "最新",
+    "stale": "过期",
+    "missing": "缺失",
+    "all": "全部",
+    "regenerate": "重新生成",
+    "regenerateAll": "重新生成所有过期项",
+    "noContextFiles": "未找到上下文文件",
+    "noAnalysisAvailable": "暂无可用分析",
+    "runWizardHint": "请先运行向导来分析你的项目。",
+    "noModulesFound": "未找到模块",
+    "searchModules": "搜索 {{count}} 个模块...",
+    "filterByStatus": "按状态筛选",
+    "filteredCount": "{{filtered}} / {{total}}",
+    "lastGenerated": "生成时间",
+    "viewFile": "查看文件"
+  },
+  "files": {
+    "title": "文件",
+    "noFiles": "未找到文件",
+    "noResults": "无结果",
+    "noAnalysisAvailable": "暂无可用分析",
+    "runWizardHint": "请先运行向导来分析你的项目。",
+    "searchPlaceholder": "搜索文件...",
+    "directories": "目录",
+    "totalFiles": "{{count}} 个文件"
+  },
+  "collapsedPill": {
+    "project": "项目",
+    "expand": "展开"
+  },
+  "node": {
+    "title": "节点详情",
+    "noNode": "选择一个节点以查看详情",
+    "noModuleData": "无可用模块数据",
+    "runWizardHint": "运行向导以查看完整模块详情（文件、依赖、导出）"
+  },
+  "nodeOverview": {
+    "module": "模块",
+    "path": "路径",
+    "copyPath": "复制路径",
+    "fileCount": "{{count}} 个文件",
+    "fileCount_other": "{{count}} 个文件"
+  },
+  "nodeConnections": {
+    "title": "连接",
+    "dependencies": "依赖项",
+    "usedBy": "被使用",
+    "none": "无",
+    "imports": "导入",
+    "importedBy": "被导入",
+    "noConnections": "无连接"
+  },
+  "nodeExports": {
+    "title": "导出",
+    "exportsHeader": "导出项"
+  },
+  "nodeLayers": {
+    "title": "层级",
+    "layersHeader": "层级",
+    "noLayers": "无可用层级数据",
+    "dependencies": "依赖项",
+    "complexity": "复杂度",
+    "documentation": "文档",
+    "testing": "测试",
+    "security": "安全性",
+    "performance": "性能",
+    "errorHandling": "错误处理",
+    "codeQuality": "代码质量",
+    "accessibility": "可访问性",
+    "api": "API",
+    "database": "数据库",
+    "configuration": "配置",
+    "infrastructure": "基础设施"
+  },
+  "nodeLogbookActions": {
+    "disconnectAI": "断开 AI 连接",
+    "connectToAI": "连接 AI"
+  }
+}

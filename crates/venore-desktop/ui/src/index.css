@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   GEIST FONT FAMILY
+   Variable fonts: Geist Sans + Geist Mono
+   ============================================ */
+
+@font-face {
+  font-family: 'Geist Sans';
+  src: url('./assets/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('./assets/fonts/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   VENORE COLOR PALETTE (CSS Variables)
+   Based on Venore V1 Design System
+   ============================================ */
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --brand: 166 98% 46%;           /* #01e8a2 */
+    --brand-hover: 166 100% 39%;    /* #00c589 */
+    --brand-muted: 166 98% 46%;     /* #01e8a2 with opacity */
+
+    /* Backgrounds (Dark Theme) */
+    --background: 240 10% 4%;       /* #09090b */
+    --background-secondary: 240 6% 5%;  /* #0c0c0e */
+    --background-tertiary: 240 6% 10%;  /* #18181b */
+    --canvas-tab-bar: 240 8% 3%;        /* darker than background for tab contrast */
+
+    /* Foreground (Text) */
+    --foreground: 0 0% 98%;         /* #fafafa */
+    --foreground-muted: 0 0% 63%;   /* #a1a1aa */
+    --foreground-subtle: 0 0% 45%;  /* #71717a */
+
+    /* Borders */
+    --border: 0 0% 15%;             /* #27272a */
+    --border-hover: 0 0% 25%;       /* #3f3f46 */
+
+    /* Semantic Colors (Estados) */
+    --semantic-success: 166 98% 46%;  /* #01e8a2 (same as brand) */
+    --semantic-warning: 38 92% 50%;   /* #f59e0b */
+    --semantic-error: 0 84% 60%;      /* #ef4444 */
+    --semantic-info: 217 91% 60%;     /* #3b82f6 */
+
+    /* Border Radius */
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Geist Sans', system-ui, -apple-system, sans-serif;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ============================================
+   RAINBOW BORDER ANIMATION
+   Hardware-accelerated CSS animation
+   ============================================ */
+
+@keyframes rainbow-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@layer components {
+  .rainbow-border {
+    position: relative;
+    padding: 1px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .rainbow-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    background: linear-gradient(
+      90deg,
+      #01e8a2,
+      #00ffc6,
+      #8b5cf6,
+      #a855f7,
+      #ef4444,
+      #f97316,
+      #01e8a2,
+      #00ffc6,
+      #8b5cf6
+    );
+    background-size: 200% 100%;
+    animation: rainbow-flow 4s linear infinite;
+    z-index: 0;
+  }
+
+  .rainbow-border > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* ============================================
+   AI CONNECTION ANIMATIONS
+   Line flow + glow pulse for AI visual system
+   ============================================ */
+
+@keyframes ai-line-flow {
+  from { stroke-dashoffset: 12; }
+  to { stroke-dashoffset: 0; }
+}
+.animate-ai-line-flow {
+  animation: ai-line-flow 1s linear infinite;
+}
+
+@keyframes ai-glow-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.animate-ai-glow-pulse {
+  animation: ai-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+  40% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   Consistent scrollbar styling across the app
+   ============================================ */
+
+@layer base {
+  /* Webkit browsers (Chrome, Edge, Safari) */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: hsl(var(--background-secondary));
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--border-hover));
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) hsl(var(--background-secondary));
+  }
+}
+
+/* ============================================
+   TEXT SELECTION
+   Brand-tinted highlight
+   ============================================ */
+
+::selection {
+  background-color: hsl(166 98% 46% / 0.25);
+  color: inherit;
+}
+
+/* ============================================
+   SHIKI CODE BLOCK OVERRIDES
+   Strip inline backgrounds so our container wins
+   ============================================ */
+
+.code-block-shiki pre {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.code-block-shiki code {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}

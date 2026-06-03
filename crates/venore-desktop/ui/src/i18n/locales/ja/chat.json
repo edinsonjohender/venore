@@ -1,0 +1,90 @@
+{
+  "emptyState": {
+    "title": "会話を始める",
+    "description": "プロジェクトについて質問してください"
+  },
+  "input": {
+    "placeholder": "質問を入力...",
+    "placeholderStreaming": "応答を待っています...",
+    "sendTitle": "メッセージを送信",
+    "stopTitle": "生成を停止",
+    "addAttachment": "添付ファイルを追加",
+    "attachFile": "ファイルを添付",
+    "addContext": "コンテキストを追加",
+    "removeAttachment": "削除",
+    "dragDropHint": "ファイルをここにドロップ",
+    "fileTooLarge": "ファイルが大きすぎます（最大 20MB）",
+    "maxAttachments": "最大 10 ファイル",
+    "pasteImage": "貼り付けた画像",
+    "model": "モデル",
+    "unsupportedFile": "サポートされていないファイル形式",
+    "newChat": "新しいチャット",
+    "sendFailed": "メッセージの送信に失敗しました"
+  },
+  "headerActions": {
+    "general": "一般",
+    "generalChat": "一般チャット",
+    "newChat": "新しいチャット",
+    "history": "チャット履歴",
+    "clearChat": "メッセージを消去",
+    "deleteChat": "チャットを削除",
+    "closeChat": "チャットを閉じる",
+    "popOut": "新しいウィンドウで開く"
+  },
+  "message": {
+    "ai": "ai"
+  },
+  "sessionHistory": {
+    "loading": "読み込み中...",
+    "noSessions": "まだ会話はありません",
+    "deleteSession": "削除",
+    "renameSession": "名前を変更"
+  },
+  "toolCall": {
+    "running": "実行中",
+    "completed": "完了",
+    "failed": "エラー",
+    "denied": "拒否",
+    "pending": "保留中",
+    "output": "出力"
+  },
+  "contextSelector": {
+    "title": "コンテキストを追加",
+    "noProject": "プロジェクトパスが設定されていません。まずプロジェクトを開いてください。",
+    "scanning": "モジュールをスキャン中...",
+    "noModules": ".context.md ファイルが見つかりません"
+  },
+  "toolConfirm": {
+    "title": "AIがツールを使用しようとしています",
+    "allowOnce": "一度だけ許可",
+    "allowSession": "セッション中許可",
+    "deny": "拒否"
+  },
+  "askUser": {
+    "title": "エージェントが入力を求めています",
+    "typeResponse": "回答を入力..."
+  },
+  "taskList": {
+    "tasks": "タスク"
+  },
+  "planView": {
+    "title": "承認待ちのプラン",
+    "approve": "承認",
+    "reject": "却下"
+  },
+  "subAgent": {
+    "agentLabel": "{{type}} エージェント",
+    "research": "リサーチ",
+    "code": "コード",
+    "test": "テスト"
+  },
+  "execution": {
+    "title": "実行"
+  },
+  "revert": {
+    "button": "ここに戻す",
+    "confirmMessage": "この時点以降のすべてのファイル変更が元に戻されます。この操作は取り消せません。",
+    "confirm": "元に戻す",
+    "cancel": "キャンセル"
+  }
+}

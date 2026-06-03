@@ -1,0 +1,156 @@
+{
+  "statusBar": {
+    "toggleTerminal": "Toggle Terminal (Ctrl+`)",
+    "terminal": "Terminal"
+  },
+  "activityBar": {
+    "backToLauncher": "Back to Launcher",
+    "terminal": "Terminal",
+    "ai": "AI"
+  },
+  "terminalTabBar": {
+    "terminal": "Terminal",
+    "newTerminal": "New terminal",
+    "closeTerminalPanel": "Close terminal panel",
+    "copy": "Copy",
+    "paste": "Paste",
+    "clear": "Clear"
+  },
+  "toolbar": {
+    "navigate": "Navigate",
+    "moveNode": "Move Node",
+    "move": "Move",
+    "canvasMode": "Canvas mode"
+  },
+  "floatingPanel": {
+    "dockPanel": "Dock panel",
+    "closePanel": "Close panel"
+  },
+  "canvasHeader": {
+    "unsavedChanges": "\"{{label}}\" has unsaved changes. Close anyway?"
+  },
+  "panel": {
+    "undockPanel": "Undock panel"
+  },
+  "windowControls": {
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "close": "Close"
+  },
+  "aiIndicator": {
+    "disconnectAll": "Disconnect all",
+    "label": "AI indicator"
+  },
+  "tabs": {
+    "ocean": "Ocean",
+    "ai": "AI"
+  },
+  "aiConfig": {
+    "title": "AI Configuration",
+    "requiredTitle": "AI Setup Required",
+    "requiredDescription": "Configure at least one AI provider to continue.",
+    "manageProviders": "Manage your AI providers",
+    "description": "Configure AI providers and task routing.",
+    "providers": "Providers",
+    "taskRouting": "Task Routing",
+    "testConnection": "Test Connection",
+    "testing": "Testing...",
+    "connectionSuccess": "Connection successful!",
+    "connectionFailed": "Connection failed",
+    "apiKey": "API Key",
+    "apiKeyPlaceholder": "Enter API key...",
+    "apiKeySet": "API key is set",
+    "apiKeyNotSet": "No API key configured",
+    "setKey": "Set Key",
+    "removeKey": "Remove Key",
+    "confirmRemoveKey": "Remove API key for {{provider}}?",
+    "model": "Model",
+    "provider": "Provider",
+    "noModels": "No models available",
+    "ollamaEndpoint": "Ollama Endpoint",
+    "ollamaNotRunning": "Ollama is not running",
+    "selectModel": "Select model...",
+    "selectProvider": "Select provider...",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "done": "Done",
+    "apiKeys": "API Keys",
+    "providersConfigured": "{{count}} provider configured",
+    "providersConfigured_other": "{{count}} providers configured",
+    "connectOneProvider": "Connect at least one provider",
+    "apiKeyLabel": "{{name}} API Key",
+    "getApiKey": "Get API Key",
+    "connected": "Connected!",
+    "saveAndTest": "Save & Test",
+    "taskConfiguration": "Task Configuration",
+    "chooseProviderModel": "Choose provider and model for each task",
+    "testOllamaConnection": "Test Ollama connection",
+    "remove": "Remove",
+    "configure": "Configure",
+    "noProviders": "No providers configured"
+  },
+  "mesh": {
+    "title": "MESH",
+    "transportRunning": "Transport: Running (port {{port}})",
+    "transportStopped": "Transport: Not running",
+    "noPeersFound": "No other instances discovered",
+    "connect": "Connect",
+    "connecting": "Connecting...",
+    "connected": "Connected",
+    "disconnect": "Disconnect",
+    "refresh": "Refresh",
+    "indicatorTitle": "{{count}} connected",
+    "indicatorTitleEmpty": "Mesh",
+    "moduleCount": "{{count}} modules"
+  },
+  "ragIndex": {
+    "title": "Code Index (RAG)",
+    "description": "Manage your project's code search index",
+    "status": "Index Status",
+    "notIndexed": "Not indexed yet",
+    "notIndexedHint": "Index your project to enable code search in chat",
+    "filesAndChunks": "{{files}} files · {{chunks}} chunks",
+    "lastIndexed": "Last indexed: {{time}}",
+    "progress": "Indexing Progress",
+    "currentFile": "Processing: {{file}}",
+    "lastRun": "Last Run",
+    "indexed": "{{count}} indexed",
+    "unchanged": "{{count}} unchanged",
+    "removed": "{{count}} removed",
+    "indexNow": "Index Now",
+    "reIndex": "Re-index",
+    "indexing": "Indexing...",
+    "done": "Done",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "error": "Indexing failed"
+  },
+  "prompts": {
+    "title": "Prompts",
+    "systemPrompt": "System Prompt",
+    "editPrompt": "Edit Prompt",
+    "resetToDefault": "Reset to Default",
+    "confirmReset": "Reset this prompt to the default version?",
+    "version": "v{{version}}",
+    "noPromptSelected": "Select a task to view its prompt",
+    "savedSuccessfully": "Prompt saved successfully",
+    "resetSuccessfully": "Prompt reset to default",
+    "tasks": {
+      "chat": "Chat",
+      "context": "Context",
+      "github": "GitHub",
+      "analysis": "Analysis",
+      "contextGeneration": "Context Generation",
+      "prReview": "PR Review"
+    },
+    "tasksLabel": "Tasks",
+    "selectTask": "Select a task to edit prompts",
+    "usingBasePrompt": "Using base prompt. No custom override for",
+    "customizeFor": "Customize for {{provider}}",
+    "reset": "Reset",
+    "save": "Save",
+    "versionHistory": "Version History",
+    "versionHistoryFor": "Version history for \"{{name}}\"",
+    "noVersionHistory": "No version history"
+  }
+}

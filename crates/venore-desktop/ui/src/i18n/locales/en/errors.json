@@ -1,0 +1,74 @@
+{
+  "LLM_NO_API_KEY": {
+    "message": "No API key configured.",
+    "suggestion": "Go to Settings and add your API key."
+  },
+  "LLM_RATE_LIMIT": {
+    "message": "Rate limit reached.",
+    "suggestion": "Wait a moment and try again."
+  },
+  "LLM_CONTEXT_TOO_LONG": {
+    "message": "Conversation too long for this model.",
+    "suggestion": "Start a new chat or reduce context."
+  },
+  "LLM_PROVIDER_ERROR": {
+    "message": "AI provider returned an error.",
+    "suggestion": "Check your connection or try a different provider."
+  },
+  "LLM_STREAM_ERROR": {
+    "message": "AI response was interrupted.",
+    "suggestion": "Try sending your message again."
+  },
+  "LLM_INVALID_PROVIDER": {
+    "message": "Invalid AI provider selected.",
+    "suggestion": "Check your provider settings in AI Configuration."
+  },
+  "LLM_INVALID_REQUEST": {
+    "message": "Invalid request to AI provider.",
+    "suggestion": "Try rephrasing your message."
+  },
+  "LLM_INVALID_RESPONSE": {
+    "message": "Received an invalid response from AI provider.",
+    "suggestion": "Try again or switch to a different provider."
+  },
+  "LLM_MODEL_NOT_AVAILABLE": {
+    "message": "Model not available for this provider.",
+    "suggestion": "Choose a different model in Settings > AI Configuration."
+  },
+  "GITHUB_AUTH_REQUIRED": {
+    "message": "GitHub authentication required.",
+    "suggestion": "Connect your GitHub account in Settings."
+  },
+  "GITHUB_RATE_LIMITED": {
+    "message": "GitHub rate limit reached.",
+    "suggestion": "Wait a few minutes and try again."
+  },
+  "GITHUB_REPO_NOT_LINKED": {
+    "message": "No GitHub repository linked.",
+    "suggestion": "Link a repository in project settings."
+  },
+  "TERMINAL_ERROR": {
+    "message": "Terminal error.",
+    "suggestion": "Try restarting the terminal."
+  },
+  "TERMINAL_SPAWN_FAILED": {
+    "message": "Failed to start terminal.",
+    "suggestion": "Check your system shell configuration."
+  },
+  "DATABASE_LOCKED": {
+    "message": "Database is temporarily busy.",
+    "suggestion": "Wait a moment and try again."
+  },
+  "DATABASE_NOT_INITIALIZED": {
+    "message": "Database is not ready yet.",
+    "suggestion": "Wait for Venore to finish starting up."
+  },
+  "TIMEOUT": {
+    "message": "Operation timed out.",
+    "suggestion": "Try again."
+  },
+  "NOT_FOUND": {
+    "message": "Resource not found.",
+    "suggestion": "Venore may still be starting up. Wait a moment and try again."
+  }
+}
