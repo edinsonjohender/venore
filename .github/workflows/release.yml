@@ -1,0 +1,65 @@
+name: Release
+
+# Push a tag like `v0.1.0` to build the app and publish a GitHub Release.
+# For now this builds the Windows installer only — the app's tauri.conf.json
+# pins the bundle target to `nsis`. macOS/Linux can be added later by making
+# the bundle targets per-platform and expanding the matrix below.
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write # needed to create the release and upload the installer
+
+jobs:
+  release:
+    name: Build & publish (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.0
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: crates/venore-desktop/ui/pnpm-lock.yaml
+
+      # The UI deps must be present before Tauri runs its beforeBuildCommand
+      # (`cd ui && pnpm run build`).
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: crates/venore-desktop/ui
+
+      # Provides the local @tauri-apps/cli that tauri-action invokes.
+      - name: Install Tauri CLI
+        run: pnpm install --frozen-lockfile
+        working-directory: crates/venore-desktop
+
+      - name: Install Rust toolchain (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo build
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build and publish release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: crates/venore-desktop
+          tagName: ${{ github.ref_name }}
+          releaseName: "Venore ${{ github.ref_name }}"
+          releaseBody: |
+            Download the Windows installer below.
+
+            The installer is **not code-signed**, so Windows SmartScreen may show
+            "Windows protected your PC". Click **More info → Run anyway** to install.
+          releaseDraft: true
+          prerelease: false
