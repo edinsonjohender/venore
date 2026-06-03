@@ -1,11 +1,13 @@
 <!--
 Thanks for contributing to Venore. Read CONTRIBUTING.md first.
 
-Hard rules — this PR will be closed automatically if any of these fail:
+A bot closes this PR automatically if either of these fails:
 
-1. There is a linked issue labeled `approved` by a maintainer.
-2. The diff is under ~300 lines (excluding lockfiles/snapshots), or the
-   issue thread explicitly approved a larger size.
+1. It links an issue labeled `approved` by a maintainer (e.g. `Fixes #123`).
+2. The diff is at most 250 lines (excluding lockfiles/snapshots).
+
+A maintainer may also close it on review if any of these fail:
+
 3. The PR addresses exactly one concern. No bundled cleanups, no mixed
    logic + formatting changes, no "while I was in here".
 4. `cargo test`, `cargo clippy --all-targets -- -D warnings`, and (for
@@ -26,7 +28,7 @@ Fixes #<!-- issue number — must be labeled `approved` by a maintainer -->
 
 - [ ] The linked issue is labeled `approved`.
 - [ ] This PR's diff stays within what the issue authorized.
-- [ ] Diff is under ~300 lines, OR the issue thread explicitly approved a larger size.
+- [ ] Diff is at most 250 lines (excluding lockfiles/snapshots).
 - [ ] One concern only — no bundled refactors, no opportunistic cleanups.
 
 ## Type of change

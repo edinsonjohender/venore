@@ -17,7 +17,7 @@ body:
       options:
         - label: I searched existing issues and confirmed this is not a duplicate.
           required: true
-        - label: I am running the latest released version of Venore (or `dev` branch HEAD).
+        - label: I am running the latest released version of Venore (or `main` branch HEAD).
           required: true
         - label: I have read [CONTRIBUTING.md](../CONTRIBUTING.md).
           required: true

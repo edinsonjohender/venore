@@ -1,0 +1,99 @@
+name: PR guard
+
+# Auto-closes PRs that break the two machine-checkable contribution rules:
+#   1. The PR must link an issue labeled `approved` by a maintainer.
+#   2. The diff must be at most 250 lines (excluding lockfiles/snapshots).
+# Everything else (one concern, tests, AI disclosure) is enforced by human review.
+#
+# Uses pull_request_target so the job has permission to close/comment on PRs
+# from forks. It only reads PR metadata via the API — it never checks out or
+# runs untrusted code, so the elevated token is safe here.
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, edited]
+
+permissions:
+  pull-requests: write
+  issues: write
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const { owner, repo } = context.repo;
+
+            // Maintainers are exempt — their own PRs are never auto-closed.
+            const trusted = ["OWNER", "MEMBER", "COLLABORATOR"];
+            if (trusted.includes(pr.author_association)) {
+              core.info(`Author association is ${pr.author_association}; skipping guard.`);
+              return;
+            }
+
+            const violations = [];
+
+            // Rule 1: diff size, excluding lockfiles and snapshots.
+            const EXCLUDE = [
+              /(^|\/)Cargo\.lock$/,
+              /(^|\/)pnpm-lock\.yaml$/,
+              /(^|\/)package-lock\.json$/,
+              /\.snap$/,
+            ];
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner, repo, pull_number: pr.number, per_page: 100,
+            });
+            let changed = 0;
+            for (const f of files) {
+              if (EXCLUDE.some((re) => re.test(f.filename))) continue;
+              changed += (f.additions || 0) + (f.deletions || 0);
+            }
+            if (changed > 250) {
+              violations.push(
+                `The diff is **${changed} lines** (excluding lockfiles/snapshots); the limit is **250**. ` +
+                `Split this into smaller PRs, each tied to its own approved issue.`
+              );
+            }
+
+            // Rule 2: must reference an issue labeled `approved`.
+            const refs = [...(pr.body || "").matchAll(/#(\d+)/g)].map((m) => parseInt(m[1], 10));
+            let approved = false;
+            for (const n of [...new Set(refs)]) {
+              try {
+                const { data: issue } = await github.rest.issues.get({ owner, repo, issue_number: n });
+                if (issue.pull_request) continue; // a PR, not an issue
+                if ((issue.labels || []).some((l) => (l.name || l) === "approved")) {
+                  approved = true;
+                  break;
+                }
+              } catch (e) {
+                // Referenced number isn't a readable issue — ignore it.
+              }
+            }
+            if (!approved) {
+              violations.push(
+                "This PR does not link an issue labeled **`approved`**. Open an issue, get a maintainer " +
+                "to approve it, and reference it in the description (e.g. `Fixes #123`) before submitting."
+              );
+            }
+
+            if (violations.length === 0) {
+              core.info("PR passed the guard.");
+              return;
+            }
+
+            const body = [
+              "This PR was **closed automatically** because it does not meet the contribution rules:",
+              "",
+              ...violations.map((v) => `- ${v}`),
+              "",
+              "See [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md). Once addressed, open a fresh PR.",
+            ].join("\n");
+
+            await github.rest.issues.createComment({ owner, repo, issue_number: pr.number, body });
+            await github.rest.pulls.update({ owner, repo, pull_number: pr.number, state: "closed" });
+            core.setFailed("PR closed by guard: " + violations.length + " violation(s).");

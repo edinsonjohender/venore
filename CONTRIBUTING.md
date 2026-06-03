@@ -30,8 +30,8 @@ If your idea is good, a 5-minute issue gets it approved. If the maintainer disag
 PRs must be **small and focused**. Specifically:
 
 - **One PR = one approved issue.** No bundling unrelated changes.
-- **Target: under ~300 lines of diff** (excluding generated files, lockfiles, snapshots).
-- **If your change is larger**, the issue discussion has to explicitly approve the size, OR you split it into multiple PRs each tied to its own issue.
+- **Limit: at most 250 lines of diff** (excluding generated files, lockfiles, snapshots). This is enforced by a bot — PRs over the limit are closed automatically.
+- **If your change is larger**, split it into multiple PRs, each tied to its own approved issue.
 - **No rewrites, no broad refactors, no "while I was in here" cleanups.** Stay inside the scope the issue defined.
 - **No mixed concerns.** Logic changes and formatting changes go in separate PRs. New features and refactors go in separate PRs.
 
@@ -61,7 +61,7 @@ Venore itself is an AI-powered tool — we are not anti-AI. We are anti-**slop**
 Any of the following closes the PR immediately, no discussion:
 
 - No linked approved issue
-- Diff exceeds ~300 lines without prior issue-level approval of the size
+- Diff exceeds 250 lines (excluding lockfiles, snapshots)
 - Multiple unrelated concerns in the same PR
 - Commit messages or PR description read like raw LLM output
 - Author cannot answer basic questions about their own changes
