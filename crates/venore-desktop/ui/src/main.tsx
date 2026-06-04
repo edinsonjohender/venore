@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./i18n";
+import "./lib/monaco";
 import App from "./App";
 import { ChatWindow } from "./screens/ChatWindow";
 import { NodeWindow } from "./screens/NodeWindow";

@@ -194,17 +194,10 @@ export function PromptsView() {
   }, [activePrompt, showVersions])
 
   const handleEditorMount: OnMount = useCallback(
-    (editor) => {
+    (editor, monaco) => {
       editorRef.current = editor
-      editor.addCommand(
-        // eslint-disable-next-line no-bitwise
-        editor.getModel()
-          ? (window as unknown as { monaco: { KeyMod: { CtrlCmd: number }; KeyCode: { KeyS: number } } }).monaco
-              ?.KeyMod?.CtrlCmd |
-              (window as unknown as { monaco: { KeyCode: { KeyS: number } } }).monaco?.KeyCode?.KeyS
-          : 0,
-        () => handleSave(),
-      )
+      // eslint-disable-next-line no-bitwise
+      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => handleSave())
     },
     [handleSave],
   )
