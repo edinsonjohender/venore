@@ -8,8 +8,17 @@
 use crate::traits::{ApiKeyStore, LlmProviderType};
 use crate::{Result, VenoreError};
 
-/// Service name for keyring entries
-const SERVICE_NAME: &str = "venore.ai";
+/// Service name for keyring entries.
+///
+/// Debug builds use a separate namespace (`venore.ai.dev`) so the development
+/// build (`cargo tauri dev`) and an installed release never share API keys —
+/// mirroring the data-directory split in `venore-desktop`'s `state.rs`
+/// (`%TEMP%/venore-dev` vs `~/.venore`).
+const SERVICE_NAME: &str = if cfg!(debug_assertions) {
+    "venore.ai.dev"
+} else {
+    "venore.ai"
+};
 
 /// API key storage using OS keychain
 ///

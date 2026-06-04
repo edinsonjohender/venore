@@ -75,8 +75,14 @@ cp .env.example .env
 
 # 3. Run the app in dev mode (front + back hot-reload)
 cd crates/venore-desktop
-cargo tauri dev
+cargo tauri dev --config tauri.dev.conf.json
 ```
+
+> The `--config tauri.dev.conf.json` override runs the dev build under a
+> separate identifier (`com.venore.app.dev`), so its WebView storage stays
+> isolated from an installed release. The backend already splits its data
+> directory by build profile (`%TEMP%/venore-dev` vs `~/.venore`), and API
+> keys use a separate keyring namespace in debug builds.
 
 ### Tests
 
