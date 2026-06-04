@@ -145,6 +145,8 @@ Do not file public issues for security vulnerabilities. See [SECURITY.md](SECURI
 
 ---
 
-## License
+## Contributor License Agreement (CLA)
 
-By contributing, you agree that your contributions are licensed under [AGPL-3.0-or-later](LICENSE).
+Before your first contribution can be merged, you must sign the [Venore Contributor License Agreement](CLA.md). Signing is automated: the first time you open a pull request, a bot asks you to confirm by posting a one-line comment. You sign once, and it covers all your future contributions.
+
+The CLA confirms that you own your contribution and grants the maintainer the rights needed to keep Venore sustainable — including the ability to offer Venore both as open source to the community and under a separate commercial license to organizations. The community version of Venore remains under [AGPL-3.0-or-later](LICENSE).
