@@ -119,7 +119,6 @@ function App() {
         {phase === 'launcher' && (
           <LauncherScreen
             onProjectOpen={handleProjectOpen}
-            onOpenOceanCatalog={() => setPhase('ocean-catalog')}
           />
         )}
 

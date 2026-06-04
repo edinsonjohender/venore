@@ -9,9 +9,10 @@
 // - Recent projects stored in localStorage
 
 import { useState, useEffect, useCallback } from 'react'
-import { FolderOpen, Clock, Trash2, Sparkles, Settings, Github, Hexagon, LayoutGrid } from 'lucide-react'
+import { FolderOpen, Clock, Trash2, Sparkles, Settings, Github, Hexagon } from 'lucide-react'
 import { open as openDialog } from '@tauri-apps/plugin-dialog'
 import { basename } from '@tauri-apps/api/path'
+import { getVersion } from '@tauri-apps/api/app'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 import { Button } from '../components/ui/button'
@@ -45,17 +46,16 @@ interface RecentProject {
 interface LauncherScreenProps {
   /** Called when a project is opened */
   onProjectOpen?: (projectPath: string, projectType?: string, projectId?: string) => void
-  /** Open the read-only Ocean element catalog (no project required) */
-  onOpenOceanCatalog?: () => void
 }
 
 // -----------------------------------------------------------------------------
 // Main Component
 // -----------------------------------------------------------------------------
 
-export function LauncherScreen({ onProjectOpen, onOpenOceanCatalog }: LauncherScreenProps) {
+export function LauncherScreen({ onProjectOpen }: LauncherScreenProps) {
   const { t } = useTranslation('screens')
   const [recentProjects, setRecentProjects] = useState<RecentProject[]>([])
+  const [appVersion, setAppVersion] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [configuredProviders, setConfiguredProviders] = useState<string[]>([])
   const [currentProviderIndex, setCurrentProviderIndex] = useState(0)
@@ -70,6 +70,7 @@ export function LauncherScreen({ onProjectOpen, onOpenOceanCatalog }: LauncherSc
   useEffect(() => {
     loadRecentProjects()
     loadCurrentProvider()
+    getVersion().then(setAppVersion).catch(() => {})
   }, [])
 
   const loadCurrentProvider = async () => {
@@ -481,19 +482,6 @@ export function LauncherScreen({ onProjectOpen, onOpenOceanCatalog }: LauncherSc
           <p className="text-xs text-foreground-muted text-center mt-2">
             {t('launcher.dragDropHint')}
           </p>
-
-          {/* Ocean catalog — dev / reference view, no project required */}
-          {onOpenOceanCatalog && (
-            <button
-              type="button"
-              onClick={onOpenOceanCatalog}
-              className="mt-1 inline-flex items-center gap-1.5 text-[11px] text-foreground-muted hover:text-foreground transition-colors"
-              title="Ctrl+Shift+O"
-            >
-              <LayoutGrid className="w-3 h-3" />
-              View Ocean catalog of elements
-            </button>
-          )}
         </div>
 
         {/* Model Selector */}
@@ -519,7 +507,7 @@ export function LauncherScreen({ onProjectOpen, onOpenOceanCatalog }: LauncherSc
 
         {/* Version */}
         <span className="absolute bottom-4 left-4 text-[10px] text-foreground-muted">
-          {t('launcher.version')}
+          {appVersion && t('launcher.version', { version: appVersion })}
         </span>
         </div>
 

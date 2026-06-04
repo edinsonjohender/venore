@@ -9,7 +9,7 @@
     "openExisting": "打开已有代码库...",
     "dragDropHint": "或拖放项目文件夹",
     "selectAI": "选择 AI",
-    "version": "v2.0.0 Alpha",
+    "version": "v{{version}} Alpha",
     "recentProjects": "最近的项目",
     "clearAllRecent": "清除所有最近项目",
     "removeFromRecent": "从最近项目中移除",

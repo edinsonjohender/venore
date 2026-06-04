@@ -9,7 +9,7 @@
     "openExisting": "既存のコードベースを開く...",
     "dragDropHint": "またはプロジェクトフォルダをドラッグ＆ドロップ",
     "selectAI": "AI を選択",
-    "version": "v2.0.0 Alpha",
+    "version": "v{{version}} Alpha",
     "recentProjects": "最近のプロジェクト",
     "clearAllRecent": "最近のプロジェクトをすべてクリア",
     "removeFromRecent": "最近のプロジェクトから削除",

@@ -9,7 +9,7 @@
     "openExisting": "Open Existing Codebase...",
     "dragDropHint": "or drag & drop a project folder",
     "selectAI": "Select AI",
-    "version": "v2.0.0 Alpha",
+    "version": "v{{version}} Alpha",
     "recentProjects": "Recent Projects",
     "clearAllRecent": "Clear all recent projects",
     "removeFromRecent": "Remove from recent",

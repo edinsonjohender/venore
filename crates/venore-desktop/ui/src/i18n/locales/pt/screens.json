@@ -9,7 +9,7 @@
     "openExisting": "Abrir Codebase Existente...",
     "dragDropHint": "ou arraste e solte uma pasta de projeto",
     "selectAI": "Selecionar AI",
-    "version": "v2.0.0 Alpha",
+    "version": "v{{version}} Alpha",
     "recentProjects": "Projetos Recentes",
     "clearAllRecent": "Limpar todos os projetos recentes",
     "removeFromRecent": "Remover dos recentes",
