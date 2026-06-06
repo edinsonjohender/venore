@@ -284,11 +284,21 @@ impl OceanLayoutService {
 
     /// Create a new user-curated knowledge node at the given cell.
     ///
-    /// Returns `Accepted { node_id, cell }` with the generated UUID if the
-    /// cell is free, `Rejected` if it is occupied. Marks the node as
-    /// `user_placed = true` so reconciliation never moves it.
-    pub fn create_knowledge_node(&mut self, name: String, target: GridCell) -> MoveResult {
-        debug!(name = %name, col = target.col, row = target.row, "Create knowledge node request");
+    /// When `lighthouse_id` is `Some`, the node is born already attached to
+    /// that island — the attachment is validated *before* any mutation, so a
+    /// bad id rejects the whole operation and creates nothing (no orphan).
+    /// Pass `None` to create a floating node.
+    ///
+    /// Returns `Accepted { node_id, cell }` with the generated UUID on success,
+    /// or `Rejected` if the cell is occupied or the lighthouse is invalid.
+    /// Marks the node as `user_placed = true` so reconciliation never moves it.
+    pub fn create_knowledge_node(
+        &mut self,
+        name: String,
+        target: GridCell,
+        lighthouse_id: Option<String>,
+    ) -> MoveResult {
+        debug!(name = %name, col = target.col, row = target.row, ?lighthouse_id, "Create knowledge node request");
 
         if let Some(occupant) = self.occupancy.get(&target) {
             debug!(occupant, "Create rejected: cell occupied");
@@ -301,6 +311,28 @@ impl OceanLayoutService {
             };
         }
 
+        // Validate the target lighthouse up front: a node attached to a
+        // non-existent or non-lighthouse node would violate the island
+        // invariant. Rejecting here (before the insert) is what keeps the
+        // operation atomic — no half-created floating orphan on bad input.
+        if let Some(ref lh_id) = lighthouse_id {
+            match self.positions.get(lh_id) {
+                Some(entry) if entry.node_variant == NodeVariant::Lighthouse => {}
+                Some(_) => {
+                    return MoveResult::Rejected {
+                        node_id: String::new(),
+                        reason: format!("Node '{}' is not a lighthouse", lh_id),
+                    };
+                }
+                None => {
+                    return MoveResult::Rejected {
+                        node_id: String::new(),
+                        reason: format!("Lighthouse '{}' not found", lh_id),
+                    };
+                }
+            }
+        }
+
         let node_id = Uuid::new_v4().to_string();
         let entry = LayoutEntry {
             module_id: node_id.clone(),
@@ -309,7 +341,7 @@ impl OceanLayoutService {
             cell: target,
             user_placed: true,
             node_variant: NodeVariant::KnowledgeNode,
-            lighthouse_id: None,
+            lighthouse_id,
         };
 
         self.occupancy.insert(target, node_id.clone());
@@ -1839,5 +1871,87 @@ mod tests {
             MoveResult::Accepted { .. } => {}
             MoveResult::Rejected { .. } => panic!("Moving to own cell should be accepted"),
         }
+    }
+
+    // ── create_knowledge_node: attachment validation ────────────────────
+
+    fn lighthouse_id_of(svc: &mut OceanLayoutService, name: &str, cell: GridCell) -> String {
+        match svc.create_lighthouse(name.to_string(), cell) {
+            MoveResult::Accepted { node_id, .. } => node_id,
+            MoveResult::Rejected { reason, .. } => panic!("lighthouse create rejected: {}", reason),
+        }
+    }
+
+    #[test]
+    fn test_create_knowledge_node_floating_when_no_lighthouse() {
+        let dir = TempDir::new().unwrap();
+        let mut svc = make_service(dir.path());
+
+        let result = svc.create_knowledge_node("Topic".to_string(), GridCell::new(2, 2), None);
+        match result {
+            MoveResult::Accepted { node_id, .. } => {
+                assert_eq!(svc.positions[&node_id].lighthouse_id, None);
+            }
+            MoveResult::Rejected { reason, .. } => panic!("should be accepted: {}", reason),
+        }
+    }
+
+    #[test]
+    fn test_create_knowledge_node_attached_to_valid_lighthouse() {
+        let dir = TempDir::new().unwrap();
+        let mut svc = make_service(dir.path());
+
+        let lh = lighthouse_id_of(&mut svc, "Island", GridCell::new(0, 0));
+        let result =
+            svc.create_knowledge_node("Topic".to_string(), GridCell::new(1, 1), Some(lh.clone()));
+        match result {
+            MoveResult::Accepted { node_id, .. } => {
+                // Born attached — no second mutation needed.
+                assert_eq!(svc.positions[&node_id].lighthouse_id.as_deref(), Some(lh.as_str()));
+            }
+            MoveResult::Rejected { reason, .. } => panic!("should be accepted: {}", reason),
+        }
+    }
+
+    #[test]
+    fn test_create_knowledge_node_rejects_unknown_lighthouse_without_creating() {
+        let dir = TempDir::new().unwrap();
+        let mut svc = make_service(dir.path());
+
+        let before = svc.positions.len();
+        let result = svc.create_knowledge_node(
+            "Topic".to_string(),
+            GridCell::new(1, 1),
+            Some("does-not-exist".to_string()),
+        );
+        match result {
+            MoveResult::Rejected { reason, .. } => assert!(reason.contains("not found")),
+            MoveResult::Accepted { .. } => panic!("should reject an unknown lighthouse"),
+        }
+        // The whole point: a bad id must NOT leave a floating orphan behind.
+        assert_eq!(svc.positions.len(), before, "no node should have been created");
+        assert!(svc.occupancy.get(&GridCell::new(1, 1)).is_none());
+    }
+
+    #[test]
+    fn test_create_knowledge_node_rejects_non_lighthouse_target() {
+        let dir = TempDir::new().unwrap();
+        let mut svc = make_service(dir.path());
+
+        // A plain knowledge node is not a valid attachment anchor.
+        let anchor = match svc.create_knowledge_node("Anchor".to_string(), GridCell::new(0, 0), None)
+        {
+            MoveResult::Accepted { node_id, .. } => node_id,
+            MoveResult::Rejected { reason, .. } => panic!("setup rejected: {}", reason),
+        };
+
+        let before = svc.positions.len();
+        let result =
+            svc.create_knowledge_node("Topic".to_string(), GridCell::new(1, 1), Some(anchor));
+        match result {
+            MoveResult::Rejected { reason, .. } => assert!(reason.contains("not a lighthouse")),
+            MoveResult::Accepted { .. } => panic!("should reject a non-lighthouse anchor"),
+        }
+        assert_eq!(svc.positions.len(), before, "no node should have been created");
     }
 }

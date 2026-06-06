@@ -451,7 +451,7 @@ pub async fn create_knowledge_node(
 
     let result: Result<CreateKnowledgeNodeResponse, VenoreError> = (|| {
         let move_result = venore_core::ocean::service::with_service(&request.project_path, |service| {
-            service.create_knowledge_node(request.name.clone(), target)
+            service.create_knowledge_node(request.name.clone(), target, None)
         })?;
 
         match move_result {

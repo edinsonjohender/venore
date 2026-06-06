@@ -3694,14 +3694,28 @@ fn execute_create_knowledge_node(
         }
 
         let target = service.find_free_cell_centroid(&anchors, &forbidden, MIN_INTER_ISLA_GAP);
-        service.create_knowledge_node(name.clone(), target)
+        // Create-and-attach atomically: the node is born with `lighthouse_id`
+        // already set, after the service validates the lighthouse exists. A bad
+        // id rejects the whole call and persists nothing — no floating orphan
+        // for the model to trip over and re-create (which is what duplicated
+        // islands when the LLM passed an unresolved `${...}` placeholder).
+        service.create_knowledge_node(name.clone(), target, lighthouse_id.clone())
     });
     let (node_id, cell) = match create_outcome {
         Ok(crate::ocean::MoveResult::Accepted { node_id, cell }) => (node_id, cell),
         Ok(crate::ocean::MoveResult::Rejected { reason, .. }) => {
+            // When the rejection is an attachment failure, point the model at
+            // the correct multi-step flow: nothing was created, so it must NOT
+            // retry the whole island — just create the lighthouse first (or
+            // reuse an existing id) and pass the real UUID it returns.
+            let guidance = if lighthouse_id.is_some() {
+                " Nothing was created. Create the lighthouse first (or look up its id with list_logbooks) and pass the exact node_id it returns — never a placeholder like ${...}."
+            } else {
+                ""
+            };
             return Ok(ToolExecutionResult {
                 success: false,
-                output: format!("create_knowledge_node rejected: {}", reason),
+                output: format!("create_knowledge_node rejected: {}.{}", reason, guidance),
                 baseline: None,
             });
         }
@@ -3713,40 +3727,6 @@ fn execute_create_knowledge_node(
             });
         }
     };
-
-    // Attach to lighthouse if requested. We do this in a separate service
-    // call to keep error handling clean and to surface assignment failures
-    // separately from creation failures.
-    if let Some(lh) = &lighthouse_id {
-        let lh_clone = lh.clone();
-        let attach_outcome =
-            crate::ocean::service::with_service(&project_path, |service| {
-                service.set_node_lighthouse(&node_id, Some(lh_clone))
-            });
-        match attach_outcome {
-            Ok(Ok(())) => {}
-            Ok(Err(reason)) => {
-                return Ok(ToolExecutionResult {
-                    success: false,
-                    output: format!(
-                        "Knowledge node \"{}\" created (id: {}) but assignment to lighthouse {} failed: {}. The node exists but is currently floating.",
-                        name, node_id, lh, reason,
-                    ),
-                    baseline: None,
-                });
-            }
-            Err(e) => {
-                return Ok(ToolExecutionResult {
-                    success: false,
-                    output: format!(
-                        "Knowledge node \"{}\" created (id: {}) but lighthouse assignment errored: {}",
-                        name, node_id, e,
-                    ),
-                    baseline: None,
-                });
-            }
-        }
-    }
 
     let isla = match &lighthouse_id {
         Some(lh) => format!(" attached to lighthouse {}", lh),
@@ -4203,7 +4183,7 @@ mod tests {
         sections: &[(&str, &str, SourceAttribution)],
     ) -> String {
         let move_result = crate::ocean::service::with_service(project_path, |service| {
-            service.create_knowledge_node(name.to_string(), GridCell::new(col, row))
+            service.create_knowledge_node(name.to_string(), GridCell::new(col, row), None)
         })
         .expect("with_service create_knowledge_node");
         let node_id = match move_result {
