@@ -100,9 +100,31 @@ You are an agent. Keep going until the task is fully resolved.
 - NEVER give up. NEVER say "this is beyond my capabilities" or "a human developer should investigate". If your approach failed 5 times, try a COMPLETELY DIFFERENT approach. You have unlimited tools — use them.
 - Do NOT apologize repeatedly. Apologies waste tokens. Instead: fix the problem."#;
 
+/// Final reminder for Gemini in a **Knowledge** project. The code reminder
+/// above talks about files/builds/tests, which Knowledge mode doesn't have —
+/// so knowledge sessions get this canvas-oriented anchor instead. Its key job
+/// is to stop the duplicate-island behavior: Gemini, after a confusing turn,
+/// re-ran a whole island it had already created (because it couldn't tell it
+/// was already done). Recency slot, positive phrasing — what Gemini obeys.
+const KNOWLEDGE_GEMINI_FINAL_REMINDER: &str = r#"# FINAL REMINDER
+
+You organize an Ocean Canvas of islands (lighthouses) and knowledge_nodes. Keep going until the task is fully resolved.
+- Map before you create. Before create_lighthouse or create_knowledge_node, check what already exists with list_islands / list_logbooks.
+- NEVER recreate something you already created earlier in THIS conversation. If a tool result above shows you created an island or node, reuse that id — running the same creation again makes duplicate islands and nodes.
+- To attach a node, pass the real lighthouse_id a previous create_lighthouse returned. Never a placeholder like ${...} or @{...}, and never an id you have not seen in a tool result this conversation.
+- Never invent tool results. Don't say "created / added / done" without a success=true in this turn.
+- Use tools for every action. Never paste tool-call syntax as text — call the function directly.
+- Speak to the user with names, never UUIDs."#;
+
 /// Returns the final reminder for a given provider, or None if not applicable.
-fn provider_final_reminder(provider: &LlmProviderType) -> Option<&'static str> {
+/// `knowledge_mode` selects the canvas-oriented anchor over the code one for
+/// Gemini Knowledge sessions.
+fn provider_final_reminder(
+    provider: &LlmProviderType,
+    knowledge_mode: bool,
+) -> Option<&'static str> {
     match provider {
+        LlmProviderType::Gemini if knowledge_mode => Some(KNOWLEDGE_GEMINI_FINAL_REMINDER),
         LlmProviderType::Gemini => Some(GEMINI_FINAL_REMINDER),
         _ => None,
     }
@@ -126,6 +148,9 @@ pub struct ChatContextBuilder {
     knowledge_context: Option<KnowledgeResearchContext>,
     mesh_peers: Vec<MeshPeerContext>,
     provider: Option<LlmProviderType>,
+    /// True when this is a Knowledge project. Only affects which provider
+    /// final reminder is appended (canvas-oriented vs code-oriented).
+    knowledge_mode: bool,
     chat_fragments: Option<ChatFragmentMap>,
     /// AI-connection attachments resolved by `connection_resolver`. Each
     /// entry is a self-contained markdown block: header (e.g. "Auth (faro)")
@@ -150,6 +175,7 @@ impl ChatContextBuilder {
             knowledge_context: None,
             mesh_peers: Vec::new(),
             provider: None,
+            knowledge_mode: false,
             chat_fragments: None,
             connection_blocks: Vec::new(),
         }
@@ -263,6 +289,13 @@ impl ChatContextBuilder {
     /// Set the LLM provider (enables provider-specific tool rules and final reminders)
     pub fn with_provider(mut self, provider: LlmProviderType) -> Self {
         self.provider = Some(provider);
+        self
+    }
+
+    /// Mark this as a Knowledge project so the canvas-oriented final reminder
+    /// is appended instead of the code one (Gemini only).
+    pub fn with_knowledge_mode(mut self, knowledge_mode: bool) -> Self {
+        self.knowledge_mode = knowledge_mode;
         self
     }
 
@@ -806,7 +839,7 @@ impl ChatContextBuilder {
 
         // Provider-specific final reminder (must be the LAST section of the prompt)
         if let Some(ref provider) = self.provider {
-            if let Some(reminder) = provider_final_reminder(provider) {
+            if let Some(reminder) = provider_final_reminder(provider, self.knowledge_mode) {
                 prompt.push_str("\n\n---\n\n");
                 prompt.push_str(reminder);
             }
@@ -1165,7 +1198,8 @@ pub async fn build_full_chat_context(
     connection_blocks: Option<Vec<crate::chat::connection_resolver::ConnectionBlock>>,
 ) -> (String, Option<String>) {
     let mut builder = ChatContextBuilder::new()
-        .with_provider(provider);
+        .with_provider(provider)
+        .with_knowledge_mode(project_kind == Some("knowledge"));
 
     if let Some(blocks) = connection_blocks {
         if !blocks.is_empty() {
@@ -1627,6 +1661,40 @@ mod tests {
         assert!(
             !prompt.contains("# FINAL REMINDER"),
             "Anthropic prompt must NOT include the Gemini final reminder"
+        );
+    }
+
+    #[test]
+    fn test_knowledge_gemini_gets_canvas_reminder() {
+        let builder = ChatContextBuilder::new()
+            .with_provider(LlmProviderType::Gemini)
+            .with_knowledge_mode(true);
+        let prompt = builder.build_system_prompt().unwrap();
+        // Canvas-oriented anchor with the duplicate-island guard.
+        assert!(
+            prompt.contains("NEVER recreate something you already created"),
+            "knowledge Gemini must get the don't-recreate rule"
+        );
+        // The code reminder must not leak into Knowledge mode.
+        assert!(
+            !prompt.contains("After editing a file"),
+            "knowledge reminder must not carry code-oriented rules"
+        );
+    }
+
+    #[test]
+    fn test_code_gemini_keeps_code_reminder() {
+        let builder = ChatContextBuilder::new()
+            .with_provider(LlmProviderType::Gemini)
+            .with_knowledge_mode(false);
+        let prompt = builder.build_system_prompt().unwrap();
+        assert!(
+            prompt.contains("After editing a file"),
+            "code Gemini keeps the code-oriented reminder"
+        );
+        assert!(
+            !prompt.contains("NEVER recreate something you already created"),
+            "code reminder must not carry the knowledge dedup rule"
         );
     }
 
